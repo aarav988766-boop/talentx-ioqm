@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TalentX — JEE Main, JEE Advanced, NEET & IOQM Arena</title>
+<style>
+:root{
+  --bg:#070b14;
+  --panel:#0e1526;
+  --panel2:#141e34;
+  --panel3:#1a2642;
+  --line:#243250;
+  --text:#f0f5ff;
+  --muted:#8fa3c8;
+  --blue:#5e81ff;
+  --cyan:#38d9d2;
+  --gold:#f5be58;
+  --green:#3dd68c;
+  --red:#ff6b7a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:radial-gradient(circle at 85% 0%,rgba(56,217,210,0.09) 0,transparent 38%),
+             radial-gradient(circle at 15% 10%,rgba(94,129,255,0.12) 0,transparent 42%),
+             var(--bg);
+  color:var(--text);
+  font:15px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+button,select,input{font:inherit}
+button{cursor:pointer;border:0;touch-action:manipulation;transition:all 0.16s ease}
+.app{display:grid;grid-template-columns:265px 1fr;min-height:100vh}
+.side{
+  background:linear-gradient(180deg,#0b1120 0%,#080d19 100%);
+  border-right:1px solid var(--line);
+  padding:26px 18px;
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.brand{font-size:27px;font-weight:900;letter-spacing:-0.8px;display:flex;align-items:center;gap:2px}
+.brand span{color:var(--cyan);font-size:33px;line-height:1}
+.tag{color:var(--muted);font-size:10.5px;letter-spacing:2.2px;margin:2px 0 28px;font-weight:600}
+.nav{flex:1;overflow-y:auto}
+.nav button{
+  width:100%;
+  text-align:left;
+  background:transparent;
+  color:var(--muted);
+  padding:11px 14px;
+  border-radius:11px;
+  margin:3px 0;
+  font-weight:500;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.nav button.active,.nav button:hover{background:var(--panel2);color:#fff}
+.nav button.active{border-left:3px solid var(--cyan);background:linear-gradient(90deg,rgba(56,217,210,0.12),var(--panel2))}
+.nav small{display:block;color:#62769c;margin:22px 12px 8px;letter-spacing:1.6px;font-size:10.5px;font-weight:700}
+.profile{
+  background:var(--panel);
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  margin-top:12px;
+}
+.main{padding:28px 34px;max-width:1460px;width:100%;margin:0 auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(36,50,80,0.6)}
+.eyebrow{color:var(--cyan);font-size:11px;letter-spacing:2px;font-weight:800;text-transform:uppercase}
+.h1{font-size:29px;font-weight:800;margin:3px 0;letter-spacing:-0.4px}
+.muted{color:var(--muted)}
+.xp{
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:10px 16px;
+  border-radius:12px;
+  white-space:nowrap;
+  font-size:14px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.25);
+}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.card{
+  background:linear-gradient(155deg,var(--panel),#0b1120);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px;
+  min-width:0;
+  box-shadow:0 8px 28px rgba(0,0,0,0.22);
+}
+.span-8{grid-column:span 8}.span-4{grid-column:span 4}.span-6{grid-column:span 6}.span-12{grid-column:span 12}
+.hero{
+  background:linear-gradient(115deg,#152547 0%,#121c33 58%,#103342 100%);
+  padding:30px;
+  border-color:#2c416b;
+}
+.hero h2{font-size:25px;margin:6px 0;letter-spacing:-0.3px}
+.stat{font-size:28px;font-weight:800}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:4px 10px;
+  border-radius:30px;
+  background:#1c314e;
+  color:#9bece8;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.4px;
+}
+.pill.gold{background:rgba(245,190,88,0.14);color:var(--gold);border:1px solid rgba(245,190,88,0.3)}
+.pill.blue{background:rgba(94,129,255,0.16);color:#a9beff;border:1px solid rgba(94,129,255,0.3)}
+.btn{
+  background:linear-gradient(135deg,var(--blue),#4869e8);
+  color:#fff;
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  box-shadow:0 4px 14px rgba(94,129,255,0.28);
+}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:active{transform:scale(0.98)}
+.btn.secondary{background:var(--panel3);color:#dce7ff;border:1px solid var(--line);box-shadow:none}
+.btn.secondary:hover{border-color:var(--cyan);color:#fff}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text);box-shadow:none}
+.btn.ghost:hover{border-color:var(--muted)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.progress{height:8px;background:#1e2b47;border-radius:10px;overflow:hidden;margin:10px 0}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0;transition:width 0.3s ease}
+.subject,.tile{
+  background:var(--panel2);
+  border:1px solid var(--line);
+  padding:16px;
+  border-radius:13px;
+  transition:border-color 0.16s ease,transform 0.16s ease;
+}
+.subject{cursor:pointer}
+.subject:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.subject h3{margin:0 0 6px;font-size:17px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.section{display:none}
+.section.show{display:block;animation:fadeIn 0.2s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.select{
+  background:#0d1526;
+  border:1px solid var(--line);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:9px;
+  min-width:160px;
+}
+.question{
+  font-size:18px;
+  font-weight:600;
+  margin:16px 0;
+  line-height:1.6;
+  color:#f7faff;
+}
+.option{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  width:100%;
+  text-align:left;
+  background:#152038;
+  color:var(--text);
+  border:1px solid var(--line);
+  padding:13px 15px;
+  border-radius:11px;
+  margin:9px 0;
+  line-height:1.5;
+}
+.option:hover{border-color:var(--cyan);background:#192642}
+.option.correct{border-color:var(--green);background:rgba(61,214,140,0.14);color:#eafff5}
+.option.wrong{border-color:var(--red);background:rgba(255,107,122,0.14);color:#ffecef}
+.opt-key{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:26px;
+  height:26px;
+  border-radius:7px;
+  background:#0e1628;
+  border:1px solid var(--line);
+  font-weight:700;
+  font-size:13px;
+  color:var(--cyan);
+  flex-shrink:0;
+}
+.option.correct .opt-key{background:var(--green);color:#061a10;border-color:var(--green)}
+.option.wrong .opt-key{background:var(--red);color:#24060a;border-color:var(--red)}
+.notice{
+  padding:14px 16px;
+  border-radius:11px;
+  background:#15243d;
+  border-left:3px solid var(--cyan);
+  color:#d7e5ff;
+  margin:14px 0;
+  line-height:1.6;
+}
+.notice.ok{border-left-color:var(--green);background:rgba(61,214,140,0.09)}
+.notice.bad{border-left-color:var(--red);background:rgba(255,107,122,0.09)}
+.hidden{display:none !important}
+.tagline{font-size:12.5px;color:var(--muted)}
+.flash{
+  font-size:20px;
+  min-height:155px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:24px;
+  background:linear-gradient(145deg,#16233d,#111b30);
+  border:1px solid var(--line);
+  border-radius:14px;
+  margin:16px 0;
+}
+.footer{color:#65799e;font-size:11.5px;margin-top:26px;text-align:center}
+.filterrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.timer-units{display:flex;align-items:center;justify-content:center;gap:7px;margin:7px 0}
+.timer-units b{font-size:22px;color:var(--gold);font-variant-numeric:tabular-nums}
+.timer-units span{font-size:11px;color:var(--muted)}
+.countdown-live{min-width:0}
+.flash-inner{display:grid;gap:12px;justify-items:center;max-width:680px}
+.flash-inner>div:nth-child(2){font-size:20px;font-weight:700;line-height:1.5}
+.option:focus,.btn:focus,.select:focus{outline:2px solid var(--cyan);outline-offset:2px}
+.mock-card{margin-top:20px;padding:22px;background:#10182b;border:1px solid var(--cyan);border-radius:15px}
+.q-palette{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0;max-height:110px;overflow-y:auto;padding:4px 0}
+.q-dot{
+  width:30px;height:30px;border-radius:7px;font-size:12px;font-weight:700;
+  background:var(--panel2);color:var(--muted);border:1px solid var(--line);
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.q-dot.cur{border-color:var(--cyan);color:#fff;box-shadow:0 0 0 1px var(--cyan)}
+.q-dot.done-ok{background:rgba(61,214,140,0.2);border-color:var(--green);color:var(--green)}
+.q-dot.done-bad{background:rgba(255,107,122,0.2);border-color:var(--red);color:var(--red)}
+.mm-box{
+  background:linear-gradient(145deg,#121d36,#0c1426);
+  border:1px solid #2b3f66;
+  border-radius:16px;
+  padding:24px;
+  text-align:center;
+  max-width:640px;
+  margin:14px auto;
+}
+.mm-expr{
+  font-size:36px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:#fff;
+  margin:18px 0;
+  font-variant-numeric:tabular-nums;
+}
+@media(max-width:850px){
+  .app{grid-template-columns:1fr}
+  .side{height:auto;position:relative;padding:16px}
+  .tag{margin-bottom:10px}
+  .nav{display:flex;overflow:auto;gap:5px}
+  .nav small,.profile{display:none}
+  .nav button{white-space:nowrap;width:auto}
+  .main{padding:18px}
+  .span-8,.span-4,.span-6{grid-column:span 12}
+  .top{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand">Talent<span>X</span></div>
+    <div class="tag">JEE • NEET • IOQM ARENA</div>
+    <div class="nav">
+      <button type="button" class="active" data-go="dashboard">⌂ &nbsp; Dashboard</button>
+      <button type="button" data-go="learn">▤ &nbsp; Learn & Practice</button>
+      <button type="button" data-go="mental">⚡ &nbsp; Mental Math Sprint</button>
+      <button type="button" data-go="pyq">◷ &nbsp; Exam Blueprint</button>
+      <button type="button" data-go="flash">▣ &nbsp; Formula & Concept Cards</button>
+      <button type="button" data-go="tests">⚑ &nbsp; Mock Tests (NTA Style)</button>
+      <button type="button" data-go="progress">◉ &nbsp; My Progress</button>
+      <small>PERSONALISE</small>
+      <button type="button" data-go="settings">⚙ &nbsp; Target Exam & Level</button>
+    </div>
+    <div class="profile">
+      <b id="sideName">Aspirant</b>
+      <div class="tagline" id="sideAim">JEE Main</div>
+      <div class="progress"><i id="sideBar"></i></div>
+      <div class="tagline"><span id="sideXP">0</span> XP · <span id="sideScore">Score: 0</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="top">
+      <div>
+        <div class="eyebrow" id="topEyebrow">NATIONAL ENTRANCE & OLYMPIAD COMMAND CENTRE</div>
+        <div class="h1" id="pageTitle">Dashboard</div>
+        <div class="muted">Zero-repetition diverse questions, multi-concept numericals & mental math speed drills.</div>
+      </div>
+      <div class="row">
+        <select class="select" id="quickAimSwitch" title="Quick Switch Exam">
+          <option value="JEE Main">Target: JEE Main</option>
+          <option value="JEE Advanced">Target: JEE Advanced</option>
+          <option value="NEET">Target: NEET UG</option>
+          <option value="IOQM">Target: IOQM (Maths + Mental Math)</option>
+          <option value="NSEJS">Target: NSEJS</option>
+        </select>
+        <div class="xp">✦ <b id="topXP">0</b> XP &nbsp;·&nbsp; <span id="topLevel">JEE Main Standard</span></div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="section show">
+      <div class="card hero">
+        <div class="eyebrow">FRESH CONCEPT EVERY QUESTION</div>
+        <h2>Master JEE Main, JEE Advanced, NEET & IOQM with high-variety problems.</h2>
+        <p class="muted">Every consecutive question tests a completely different concept, formula, or trick — no repetitive templates, plus dedicated IOQM Mental Math sprints.</p>
+        <div class="row" style="justify-content:flex-start;margin-top:14px">
+          <button type="button" class="btn" data-go="learn">Start Chapter Practice →</button>
+          <button type="button" class="btn secondary" data-go="tests">Attempt Full Mock Test</button>
+          <button type="button" class="btn ghost" data-go="mental">⚡ Mental Math Sprint</button>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:18px">
+        <div class="card span-12">
+          <div class="row">
+            <div>
+              <div class="eyebrow">TARGET EXAM COUNTDOWN · 2027</div>
+              <h3 style="margin:4px 0">Stay ahead of the curve. Diverse daily practice builds real exam temperament.</h3>
+            </div>
+            <span class="pill gold">2027 SESSION ESTIMATES</span>
+          </div>
+          <div class="tiles" id="countdownTiles" style="margin-top:12px"></div>
+        </div>
+
+        <div class="card span-8">
+          <div class="row">
+            <div>
+              <div class="eyebrow">ACTIVE SYLLABUS TRACK</div>
+              <h2 id="dashAim" style="margin:4px 0">JEE Main</h2>
+              <div class="muted" id="dashTrack">Physics · Chemistry · Mathematics</div>
+            </div>
+            <button type="button" class="btn secondary" data-go="settings">Switch Target Exam</button>
+          </div>
+          <div class="progress"><i id="masterBar"></i></div>
+          <div class="row"><span class="tagline">Syllabus Mastery</span><b id="masterText">0%</b></div>
+        </div>
+
+        <div class="card span-4">
+          <div class="eyebrow">PERFORMANCE METRICS</div>
+          <div class="row" style="margin-top:10px">
+            <div><div class="stat" id="statDone">0</div><div class="tagline">Solved</div></div>
+            <div><div class="stat" id="statAccuracy">—</div><div class="tagline">Accuracy</div></div>
+            <div><div class="stat" id="statMarks">0</div><div class="tagline">+4/−1 Marks</div></div>
+          </div>
+          <hr style="border-color:var(--line);margin:16px 0">
+          <div class="row"><span class="muted">Marking Scheme</span><b>+4 Correct / −1 Wrong</b></div>
+        </div>
+
+        <div class="card span-12">
+          <div class="row" style="margin-bottom:12px">
+            <h3 style="margin:0">Subjects in your selected track</h3>
+            <span class="pill blue">HIGH-VARIETY QUESTION BANKS</span>
+          </div>
+          <div class="tiles" id="dashSubjects"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARN & PRACTICE -->
+    <section id="learn" class="section">
+      <div class="row">
+        <div>
+          <h2 style="margin:0 0 4px">Chapter-wise Practice Arena</h2>
+          <p class="muted" style="margin:0">Every next question shifts to a new sub-topic, law, or problem type so your brain stays sharp.</p>
+        </div>
+        <select class="select" id="levelSelect">
+          <option value="JEE Main Standard">Difficulty: JEE Main Standard</option>
+          <option value="JEE Advanced Challenger">Difficulty: JEE Advanced Challenger</option>
+          <option value="NEET Speed & Accuracy">Difficulty: NEET Speed & Accuracy</option>
+        </select>
+      </div>
+      <div class="tiles" id="subjectTiles" style="margin:18px 0"></div>
+      <div class="card">
+        <div class="row" style="margin-bottom:14px">
+          <h3 id="topicTitle" style="margin:0">Select a subject</h3>
+          <span class="pill" id="topicLevel">JEE MAIN STANDARD</span>
+        </div>
+        <div id="topicList" class="tiles"></div>
+      </div>
+      <div id="practiceBox" class="card hidden" style="margin-top:18px"></div>
+    </section>
+
+    <!-- MENTAL MATH (IOQM & SPEED CALCULATION) -->
+    <section id="mental" class="section">
+      <div class="card">
+        <div class="row">
+          <div>
+            <div class="eyebrow">IOQM & SPEED CALCULATION DRILL</div>
+            <h2 style="margin:4px 0">Mental Math Sprint</h2>
+            <p class="muted" style="margin:0">Pure calculation agility — fast squares, cubes, modular remainders, percentage splits, GCD/LCM, and quick arithmetic without pen & paper.</p>
+          </div>
+          <span class="pill gold">IOQM MATHEMATICS MODULE</span>
+        </div>
+
+        <div class="filterrow" style="margin-top:16px">
+          <select class="select" id="mmMode">
+            <option value="mixed">Mode: Mixed Speed Arithmetic</option>
+            <option value="squares">Mode: Squares, Cubes & Roots</option>
+            <option value="mod">Mode: Fast Remainders & Divisibility</option>
+            <option value="percent">Mode: Percentages & Fractions</option>
+          </select>
+          <button type="button" class="btn" id="btnStartMM">Start 60-Second Sprint →</button>
+          <button type="button" class="btn secondary" id="btnPracticeMM">Untimed Warmup</button>
+        </div>
+
+        <div id="mmArena" class="mm-box hidden">
+          <div class="row">
+            <span class="pill blue" id="mmTag">MENTAL MATH</span>
+            <span class="pill gold" id="mmTimerPill">⏱ 60s</span>
+            <span class="tagline">Streak: <b id="mmStreak" style="color:var(--green)">0</b> &nbsp;|&nbsp; Score: <b id="mmScore" style="color:var(--cyan)">0</b></span>
+          </div>
+          <div class="mm-expr" id="mmQuestion">17 × 19 = ?</div>
+          <div id="mmOptions" class="tiles" style="grid-template-columns:repeat(2,1fr);max-width:440px;margin:0 auto"></div>
+          <div id="mmFeedback" style="margin-top:12px;min-height:24px" class="tagline"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAM PATTERN & PYQ -->
+    <section id="pyq" class="section">
+      <div class="card">
+        <div class="eyebrow">EXAMINATION BLUEPRINT</div>
+        <h2>Exam Pattern & Marking Guide</h2>
+        <p class="muted">All practice modules follow official +4 / −1 negative marking rules and balanced chapter weightage.</p>
+        <div class="tiles" style="margin-top:16px">
+          <div class="tile">
+            <span class="pill blue">ENGINEERING</span>
+            <h3 style="margin:8px 0 4px">JEE Main</h3>
+            <p class="tagline">Physics, Chemistry, Mathematics · 75 Questions (25 per subject) · 300 Marks · +4 / −1 marking.</p>
+          </div>
+          <div class="tile">
+            <span class="pill gold">IIT ENTRANCE</span>
+            <h3 style="margin:8px 0 4px">JEE Advanced</h3>
+            <p class="tagline">Multi-concept analytical problems across Physics, Chemistry & Mathematics requiring deeper derivation.</p>
+          </div>
+          <div class="tile">
+            <span class="pill">MEDICAL</span>
+            <h3 style="margin:8px 0 4px">NEET UG</h3>
+            <p class="tagline">Physics (45), Chemistry (45), Biology (90) · 180 Questions · 720 Marks · NCERT-aligned speed & precision.</p>
+          </div>
+          <div class="tile">
+            <span class="pill">OLYMPIAD + MENTAL MATH</span>
+            <h3 style="margin:8px 0 4px">IOQM & NSEJS</h3>
+            <p class="tagline">Number Theory, Combinatorics, Geometry, Junior Science & rapid Mental Math calculation drills.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLASHCARDS -->
+    <section id="flash" class="section">
+      <div class="card">
+        <div class="eyebrow">HIGH-YIELD FORMULA & NCERT RECALL</div>
+        <h2>Formula & Concept Revision Cards</h2>
+        <p class="muted">Rapid active recall for key equations, named reactions, exceptions, and NCERT lines.</p>
+        <div class="filterrow">
+          <select class="select" id="flashSubject"></select>
+          <select class="select" id="flashTopic"></select>
+          <span class="pill" id="flashCount"></span>
+        </div>
+        <div class="flash" id="flashCard">Choose a subject and chapter</div>
+        <div class="row">
+          <button type="button" class="btn secondary" id="btnPrevFlash">← Previous</button>
+          <button type="button" class="btn" id="btnFlipFlash">Flip Card</button>
+          <button type="button" class="btn secondary" id="btnNextFlash">Next →</button>
+        </div>
+        <div class="row" style="margin-top:14px">
+          <span class="tagline" id="flashMeta">Chapter revision</span>
+          <div class="row">
+            <button type="button" class="btn ghost" id="btnNeedRev">Mark for Revision</button>
+            <button type="button" class="btn secondary" id="btnKnowThis">Mastered ✓</button>
+            <button type="button" class="btn ghost" id="btnShuffleFlash">Shuffle Deck</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOCK TESTS -->
+    <section id="tests" class="section">
+      <div class="card">
+        <div class="eyebrow">NTA CBT SIMULATION · +4 / −1 MARKING</div>
+        <h2>Full-Length & Part Syllabus Mock Tests</h2>
+        <p class="muted">Active Exam Track: <b id="mockExamBadge" style="color:var(--cyan)">JEE Main</b> · Anti-repeat shuffle ensures every question tests a fresh concept.</p>
+        <div class="tiles" style="margin-top:16px">
+          <div class="tile">
+            <span class="pill">PART TEST · 45 MIN</span>
+            <h3 style="margin:8px 0 4px">Mini Practice Mock</h3>
+            <p class="tagline">30 diverse high-yield questions across all subjects in your target exam (+4/−1).</p>
+            <button type="button" class="btn" data-action="launch-mock" data-count="30" data-mins="45" data-label="MINI PRACTICE MOCK">Start 30-Q Mock →</button>
+          </div>
+          <div class="tile">
+            <span class="pill blue">JEE MAIN PATTERN · 180 MIN</span>
+            <h3 style="margin:8px 0 4px">Standard Full Mock (75 Qs)</h3>
+            <p class="tagline">75 balanced questions (25 Physics, 25 Chemistry, 25 Maths / Bio) · 300 Marks.</p>
+            <button type="button" class="btn secondary" data-action="launch-mock" data-count="75" data-mins="180" data-label="75-QUESTION FULL MOCK">Start 75-Q Mock →</button>
+          </div>
+          <div class="tile">
+            <span class="pill gold">NEET / MARATHON · 180 MIN</span>
+            <h3 style="margin:8px 0 4px">Grand Marathon Mock (180 Qs)</h3>
+            <p class="tagline">180 full-syllabus questions (720 Marks) for complete NEET UG or JEE endurance.</p>
+            <button type="button" class="btn secondary" data-action="launch-mock" data-count="180" data-mins="180" data-label="180-QUESTION GRAND MOCK">Start 180-Q Mock →</button>
+          </div>
+        </div>
+        <div id="testBox" class="mock-card hidden"></div>
+      </div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section id="progress" class="section">
+      <div class="card">
+        <div class="eyebrow">ANALYTICS & SCOREBOARD</div>
+        <h2>Your Performance Summary</h2>
+        <div class="tiles" style="margin:16px 0">
+          <div class="tile"><div class="stat" id="pXP">0</div><div class="tagline">Total XP</div></div>
+          <div class="tile"><div class="stat" id="pDone">0</div><div class="tagline">Questions Solved</div></div>
+          <div class="tile"><div class="stat" id="pAcc">0%</div><div class="tagline">Accuracy</div></div>
+          <div class="tile"><div class="stat" id="pMarks">0</div><div class="tagline">Net Marks (+4/−1)</div></div>
+        </div>
+        <h3>Overall Mastery</h3>
+        <div class="progress"><i id="pBar"></i></div>
+        <p class="muted" id="pLevelText"></p>
+        <button type="button" class="btn secondary" id="btnResetProgress">Reset All Stats</button>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="settings" class="section">
+      <div class="card">
+        <div class="eyebrow">CUSTOMISE YOUR WORKSPACE</div>
+        <h2>Target Exam & Difficulty Settings</h2>
+        <p class="muted">Switch seamlessly between JEE Main, JEE Advanced, NEET UG, and IOQM tracks.</p>
+        <div class="row" style="margin:16px 0">
+          <label>Target Examination<br>
+            <select class="select" id="aimSelect" style="margin-top:6px">
+              <option value="JEE Main">JEE Main (Physics, Chemistry, Mathematics)</option>
+              <option value="JEE Advanced">JEE Advanced (Physics, Chemistry, Mathematics)</option>
+              <option value="NEET">NEET UG (Physics, Chemistry, Biology)</option>
+              <option value="IOQM">IOQM (Olympiad Mathematics + Mental Math)</option>
+              <option value="NSEJS">NSEJS (Junior Science Olympiad)</option>
+            </select>
+          </label>
+          <label>Question Standard<br>
+            <select class="select" id="settingsLevel" style="margin-top:6px">
+              <option value="JEE Main Standard">JEE Main Standard</option>
+              <option value="JEE Advanced Challenger">JEE Advanced Challenger</option>
+              <option value="NEET Speed & Accuracy">NEET Speed & Accuracy</option>
+            </select>
+          </label>
+        </div>
+        <label>Aspirant Name<br>
+          <input class="select" id="nameInput" placeholder="Aspirant" style="margin-top:6px">
+        </label>
+      </div>
+    </section>
+
+    <div class="footer">TALENTX LEARNING ARENA · JEE Main · JEE Advanced · NEET UG · IOQM & Mental Math · Saved locally.</div>
+  </main>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const syllabus = {
+    "JEE Main": {
+      Physics: [
+        "Kinematics & Projectile Motion",
+        "Laws of Motion & Friction",
+        "Work, Energy, Power & Circular Motion",
+        "Centre of Mass & Rotational Dynamics",
+        "Gravitation & Orbital Mechanics",
+        "Properties of Solids & Fluid Mechanics",
+        "Thermodynamics & Kinetic Theory of Gases",
+        "Oscillations (SHM) & Mechanical Waves",
+        "Electrostatics & Capacitors",
+        "Current Electricity & DC Circuits",
+        "Magnetic Effects of Current & Magnetism",
+        "Electromagnetic Induction & Alternating Current",
+        "Ray Optics & Wave Optics",
+        "Modern Physics (Atoms, Nuclei & Dual Nature)",
+        "Semiconductors & Electronic Devices"
+      ],
+      Chemistry: [
+        "Some Basic Concepts & Mole Concept",
+        "Atomic Structure & Quantum Numbers",
+        "Chemical Bonding & Molecular Orbital Theory",
+        "Chemical & Ionic Equilibrium",
+        "Chemical Thermodynamics & Thermochemistry",
+        "Electrochemistry & Nernst Equation",
+        "Chemical Kinetics & Radioactivity",
+        "Solutions & Colligative Properties",
+        "Periodic Classification & s/p-Block Elements",
+        "d & f-Block Elements & Coordination Compounds",
+        "General Organic Chemistry (GOC) & Isomerism",
+        "Hydrocarbons & Haloalkanes",
+        "Alcohols, Phenols & Ethers",
+        "Aldehydes, Ketones & Carboxylic Acids",
+        "Amines & Biomolecules"
+      ],
+      Mathematics: [
+        "Sets, Relations & Functions",
+        "Complex Numbers & Quadratic Equations",
+        "Matrices & Determinants",
+        "Permutations, Combinations & Binomial Theorem",
+        "Sequences & Series (AP, GP, AGP)",
+        "Limits, Continuity & Differentiability",
+        "Applications of Derivatives (Maxima/Minima)",
+        "Indefinite & Definite Integration",
+        "Area Under Curves & Differential Equations",
+        "Straight Lines & Pair of Lines",
+        "Circles & Conic Sections (Parabola, Ellipse, Hyperbola)",
+        "Vector Algebra & 3D Geometry",
+        "Trigonometric Functions & Inverse Trigonometry",
+        "Probability & Statistics"
+      ]
+    },
+    "JEE Advanced": {
+      Physics: [
+        "Advanced Mechanics & Rigid Body Rotation",
+        "Fluid Dynamics & Surface Tension",
+        "Thermal Physics & Carnot Cycles",
+        "Gauss Law, Dielectrics & RC Transients",
+        "Magnetostatics, EMI & LCR Resonance",
+        "Interference, Diffraction & Geometrical Optics",
+        "Photoelectric Effect, Bohr Model & Nuclear Decay"
+      ],
+      Chemistry: [
+        "Stoichiometry & Redox Titrations",
+        "Chemical Kinetics & Electrochemistry",
+        "Thermodynamics & Phase Equilibrium",
+        "Coordination Chemistry & Crystal Field Theory",
+        "Qualitative Salt Analysis & Metallurgy",
+        "Stereochemistry & Reaction Mechanisms",
+        "Carbonyl Compounds, Amines & Named Reactions"
+      ],
+      Mathematics: [
+        "Complex Numbers & Geometry",
+        "Matrices, Eigen Systems & Determinants",
+        "Combinatorics & Functional Equations",
+        "Differential Calculus & Inequalities",
+        "Integral Calculus & Reduction Formulae",
+        "Conic Sections & Tangents/Normals",
+        "Vectors, 3D Lines/Planes & Bayes Theorem"
+      ]
+    },
+    "NEET": {
+      Physics: [
+        "Units, Dimensions & Kinematics",
+        "Laws of Motion, Work, Energy & Power",
+        "Rotational Motion & Gravitation",
+        "Bulk Matter, Thermodynamics & KTG",
+        "Oscillations & Waves",
+        "Electrostatics & Current Electricity",
+        "Magnetic Effects, EMI & AC",
+        "Optics & Dual Nature of Radiation",
+        "Atoms, Nuclei & Semiconductor Electronics"
+      ],
+      Chemistry: [
+        "Mole Concept & Atomic Structure",
+        "Chemical Bonding & States of Matter",
+        "Thermodynamics & Equilibrium",
+        "Redox, Electrochemistry & Kinetics",
+        "Solutions & Surface Chemistry",
+        "Periodic Table, p-Block, d & f-Block",
+        "Coordination Compounds",
+        "GOC, Hydrocarbons & Haloalkanes",
+        "Oxygen & Nitrogen Containing Organic Compounds",
+        "Biomolecules & Chemistry in Everyday Life"
+      ],
+      Biology: [
+        "Diversity in Living World & Biological Classification",
+        "Plant Kingdom & Animal Kingdom",
+        "Morphology & Anatomy of Flowering Plants",
+        "Cell: The Unit of Life, Biomolecules & Cell Cycle",
+        "Plant Physiology (Photosynthesis, Respiration, PGR)",
+        "Human Physiology (Digestion, Breathing, Circulation, Excretion)",
+        "Neural & Chemical Coordination",
+        "Reproduction in Organisms & Flowering Plants",
+        "Human Reproduction & Reproductive Health",
+        "Principles of Inheritance & Molecular Basis of Inheritance",
+        "Evolution, Human Health & Disease",
+        "Biotechnology: Principles & Applications",
+        "Ecology, Ecosystem & Biodiversity Conservation"
+      ]
+    },
+    "IOQM": {
+      Mathematics: [
+        "Number System & Modular Arithmetic",
+        "Primes, Divisibility, GCD & LCM",
+        "Diophantine Equations & Euler Totient",
+        "Polynomials, Vieta Formulae & Inequalities",
+        "Sequences, Series & Functional Equations",
+        "Combinatorics, Counting & Binomial Theorem",
+        "Euclidean Geometry & Trigonometry"
+      ],
+      "Mental Math": [
+        "Speed Multiplication & Squares (1 to 99)",
+        "Fast Remainders, Divisibility & Digital Roots",
+        "Percentage, Ratio & Fraction Conversions",
+        "Quick Cubes, Roots & Mental Simplification"
+      ]
+    },
+    "NSEJS": {
+      Physics: ["Motion & Laws of Motion", "Gravitation & Flotation", "Work, Energy & Sound", "Electricity, Magnetism & Light"],
+      Chemistry: ["Atomic Structure & Mole Concept", "Chemical Reactions & Acids/Bases", "Metals, Non-Metals & Carbon Compounds"],
+      Biology: ["Cell Biology & Tissues", "Life Processes & Control/Coordination", "Heredity, Reproduction & Health"]
+    }
+  };
+
+  const factBank = {
+    Physics: [
+      ["Projectile Range & Max Height", "R = u²sin(2θ)/g, H = u²sin²θ/(2g). Relation: R tanθ = 4H. Max range at θ = 45°.", "Kinematics & Projectile Motion"],
+      ["Rolling Acceleration on Incline", "a = g sinθ / (1 + I/(mR²)). Disc: 2g sinθ / 3; Solid sphere: 5g sinθ / 7; Ring: g sinθ / 2.", "Centre of Mass & Rotational Dynamics"],
+      ["Escape & Orbital Velocity", "v_orbital = √(GM/R) ≈ 7.9 km/s; v_escape = √(2GM/R) = √2 · v_orbital ≈ 11.2 km/s.", "Gravitation & Orbital Mechanics"],
+      ["Carnot Efficiency", "η = 1 − (T_sink / T_source) = 1 − Q₂/Q₁ (Temperatures strictly in Kelvin).", "Thermodynamics & Kinetic Theory of Gases"],
+      ["Capacitor with Dielectric", "C = Kε₀A/d. Battery connected: Q becomes KQ, V constant. Battery disconnected: V becomes V/K, Q constant.", "Electrostatics & Capacitors"],
+      ["Wheatstone & Meter Bridge", "Balanced condition: P/Q = R/S. No current flows through the galvanometer branch.", "Current Electricity & DC Circuits"],
+      ["LCR Series Resonance", "Resonant frequency f₀ = 1 / (2π√(LC)). At resonance, Z = R (minimum) and power factor cosφ = 1.", "Electromagnetic Induction & Alternating Current"],
+      ["Lens Maker Formula", "1/f = (μ_rel − 1)(1/R₁ − 1/R₂). Power P = 100 / f(cm) in Dioptres.", "Ray Optics & Wave Optics"],
+      ["de Broglie & Photoelectric", "λ = h/p = h/√(2mqV). Einstein eq: K_max = hν − Φ₀ = eV_s.", "Modern Physics (Atoms, Nuclei & Dual Nature)"]
+    ],
+    Chemistry: [
+      ["Heisenberg & de Broglie", "Δx · Δp ≥ h/(4π). Orbital angular momentum = √(l(l+1)) · h/(2π).", "Atomic Structure & Quantum Numbers"],
+      ["Bond Order & Magnetism (MOT)", "O₂ (BO=2, paramagnetic), O₂⁺ (BO=2.5), O₂⁻ (BO=1.5), N₂ (BO=3, diamagnetic).", "Chemical Bonding & Molecular Orbital Theory"],
+      ["Gibbs Free Energy & Spontaneity", "ΔG = ΔH − TΔS. ΔG < 0 for spontaneous process; ΔG° = −RT ln K_eq = −nFE°_cell.", "Chemical Thermodynamics & Thermochemistry"],
+      ["Nernst Equation at 298 K", "E_cell = E°_cell − (0.0591 / n) log₁₀ Q.", "Electrochemistry & Nernst Equation"],
+      ["First Order Kinetics", "k = (2.303/t) log([A]₀/[A]). Half-life t₁/₂ = 0.693 / k (independent of initial concentration).", "Chemical Kinetics & Radioactivity"],
+      ["Colligative Properties & van't Hoff", "ΔT_b = i · K_b · m; ΔT_f = i · K_f · m; π = i · C · R · T.", "Solutions & Colligative Properties"],
+      ["Crystal Field Splitting (CFSE)", "Strong field ligands (CN⁻, CO) cause pairing (low spin, Δ₀ > P); weak field (F⁻, Cl⁻) give high spin.", "d & f-Block Elements & Coordination Compounds"],
+      ["Carbocation Stability Order", "3° > 2° > 1° > CH₃⁺ (governed by +I effect and hyperconjugation; resonance-stabilised allylic/benzylic even more stable).", "General Organic Chemistry (GOC) & Isomerism"],
+      ["Aldol & Cannizzaro Reaction", "Aldehydes with α-H undergo Aldol condensation; aldehydes without α-H (HCHO, C₆H₅CHO) undergo Cannizzaro disproportionation.", "Aldehydes, Ketones & Carboxylic Acids"]
+    ],
+    Mathematics: [
+      ["Cube Roots of Unity", "1 + ω + ω² = 0 and ω³ = 1, where ω = (−1 + i√3)/2.", "Complex Numbers & Quadratic Equations"],
+      ["Cramer's Rule & Consistency", "If Δ ≠ 0: unique solution. If Δ = 0 and Δ₁ = Δ₂ = Δ₃ = 0: infinite/no solution.", "Matrices & Determinants"],
+      ["Binomial General Term", "T_(r+1) = ⁿCᵣ x^(n−r) y^r. Sum of all binomial coefficients = 2ⁿ.", "Permutations, Combinations & Binomial Theorem"],
+      ["AM ≥ GM ≥ HM", "For positive real numbers: (a+b)/2 ≥ √(ab) ≥ 2ab/(a+b). Equality holds iff a = b.", "Sequences & Series (AP, GP, AGP)"],
+      ["Standard Limits", "lim(x→0) (sin x)/x = 1; lim(x→0) (eˣ − 1)/x = 1; lim(x→0) (1 + x)^(1/x) = e.", "Limits, Continuity & Differentiability"],
+      ["King's Property of Definite Integrals", "∫ₐᵇ f(x) dx = ∫ₐᵇ f(a + b − x) dx.", "Indefinite & Definite Integration"],
+      ["Tangent to Parabola y² = 4ax", "In slope form: y = mx + a/m (m ≠ 0). Point of contact: (a/m², 2a/m).", "Circles & Conic Sections (Parabola, Ellipse, Hyperbola)"],
+      ["Shortest Distance Between Skew Lines", "d = |(a₂ − a₁) · (b₁ × b₂)| / |b₁ × b₂|.", "Vector Algebra & 3D Geometry"],
+      ["Bayes' Theorem", "P(Eᵢ|A) = [P(Eᵢ) P(A|Eᵢ)] / Σ P(Eⱼ) P(A|Eⱼ).", "Probability & Statistics"]
+    ],
+    "Mental Math": [
+      ["Squaring Numbers Ending in 5", "For (10a + 5)²: multiply a × (a + 1) and append 25. Example: 65² = (6×7)25 = 4225.", "Speed Multiplication & Squares (1 to 99)"],
+      ["(a − b)(a + b) Trick", "Multiply two numbers equally spaced from n: (n − d)(n + d) = n² − d². Example: 27 × 33 = 30² − 3² = 891.", "Speed Multiplication & Squares (1 to 99)"],
+      ["Divisibility by 11", "Alternating sum of digits from right to left must be 0 or a multiple of 11.", "Fast Remainders, Divisibility & Digital Roots"],
+      ["Key Fraction Equivalents", "1/6 = 16.67%, 1/7 = 14.28%, 1/8 = 12.5%, 1/9 = 11.11%, 1/12 = 8.33%.", "Percentage, Ratio & Fraction Conversions"]
+    ],
+    Biology: [
+      ["Five Kingdom Classification", "Monera (prokaryotic), Protista (unicellular eukaryotes), Fungi (chitin cell wall), Plantae, Animalia.", "Diversity in Living World & Biological Classification"],
+      ["Cell Cycle Checkpoints", "G₁ → S (DNA replication, histone synthesis) → G₂ (tubulin synthesis) → M phase. Crossing over occurs in Pachytene of Prophase I.", "Cell: The Unit of Life, Biomolecules & Cell Cycle"],
+      ["C₃ vs C₄ Plants", "C₃ primary acceptor: RuBP (5C), enzyme RuBisCO. C₄ primary acceptor: PEP (3C), enzyme PEPcase; Kranz anatomy prevents photorespiration.", "Plant Physiology (Photosynthesis, Respiration, PGR)"],
+      ["Oxygen Dissociation Curve", "Sigmoid curve. Right shift (favours O₂ unloading at tissues): high pCO₂, high H⁺ (low pH), high temperature, high 2,3-BPG.", "Human Physiology (Digestion, Breathing, Circulation, Excretion)"],
+      ["Cardiac Cycle & ECG", "Duration = 0.8 s (72 bpm). P-wave: atrial depolarisation; QRS complex: ventricular depolarisation; T-wave: ventricular repolarisation.", "Human Physiology (Digestion, Breathing, Circulation, Excretion)"],
+      ["Lac Operon Regulation", "Lactose acts as inducer, binds repressor protein, allowing RNA polymerase to transcribe lacZ (β-galactosidase), lacY, lacA.", "Principles of Inheritance & Molecular Basis of Inheritance"],
+      ["PCR Steps & Taq Polymerase", "Denaturation (94°C) → Annealing (50–60°C) → Extension (72°C using thermostable Taq DNA polymerase from Thermus aquaticus).", "Biotechnology: Principles & Applications"],
+      ["Ecological Pyramids", "Pyramid of energy is ALWAYS upright (10% Lindeman law). Pyramid of biomass in sea is inverted.", "Ecology, Ecosystem & Biodiversity Conservation"]
+    ]
+  };
+
+  // Safe localStorage wrapper
+  const defaultState = { aim: "JEE Main", level: "JEE Main Standard", xp: 0, done: 0, correct: 0, marks: 0, name: "Aspirant", mastery: 0 };
+  let state = { ...defaultState };
+  try {
+    const saved = localStorage.getItem("txstate_jee_v2");
+    if (saved) state = { ...defaultState, ...JSON.parse(saved) };
+  } catch (e) {}
+  if (!syllabus[state.aim]) state.aim = "JEE Main";
+
+  function save() {
+    try { localStorage.setItem("txstate_jee_v2", JSON.stringify(state)); } catch (e) {}
+    updateUI();
+  }
+
+  // =========================================================================
+  // HIGH-VARIETY QUESTION ENGINE
+  // Guarantees every consecutive question uses a DIFFERENT archetype & concept
+  // =========================================================================
+  const TX = (() => {
+    const hash = s => [...s].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 17);
+    const rng = (seed) => () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+    const shuffle = (a, r) => {
+      a = [...a];
+      for (let i = a.length - 1; i > 0; i--) {
+        let j = Math.floor(r() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    };
+
+    const makeQ = (q, ans, distractors, exp, archetype, r) => {
+      const ansStr = String(ans);
+      let uniqueWrong = [];
+      for (const d of distractors) {
+        const s = String(d);
+        if (s !== ansStr && !uniqueWrong.includes(s)) uniqueWrong.push(s);
+      }
+      let step = 1;
+      while (uniqueWrong.length < 3) {
+        const num = parseFloat(ansStr);
+        let candidate;
+        if (!isNaN(num) && /^-?\d+(\.\d+)?$/.test(ansStr.trim())) {
+          candidate = Number.isInteger(num) ? String(num + step * 3) : (num + step * 0.4).toFixed(2);
+        } else {
+          candidate = `Option ${step + 1}`;
+        }
+        if (candidate !== ansStr && !uniqueWrong.includes(candidate)) uniqueWrong.push(candidate);
+        step++;
+      }
+      const opts = shuffle([ansStr, ...uniqueWrong.slice(0, 3)], r);
+      return { q, o: opts, a: opts.indexOf(ansStr), e: exp, archetype };
+    };
+
+    // ------------------- PHYSICS: 18 DISTINCT ARCHETYPES -------------------
+    const physicsTemplates = [
+      // 0: Projectile Range vs Height relation
+      (i, r) => {
+        const H = 10 + (i % 7) * 5;
+        const R = 4 * H;
+        return makeQ(
+          `A projectile thrown at an angle of 45° above horizontal attains a maximum height of ${H} m. What is its horizontal range on level ground?`,
+          `${R} m`,
+          [`${2 * H} m`, `${3 * H} m`, `${Math.round(H * 1.41)} m`],
+          `Using R tanθ = 4H with θ = 45° (tan 45° = 1), R = 4H = 4 × ${H} = ${R} m.`,
+          "phys-proj-range", r
+        );
+      },
+      // 1: Calculus Kinematics (v(t) -> acceleration & displacement)
+      (i, r) => {
+        const t = 2 + (i % 4);
+        const acc = 6 * t - 4;
+        return makeQ(
+          `A particle moves along a straight line such that its velocity is v(t) = 3t² − 4t + 2 m/s. Find its instantaneous acceleration at t = ${t} s.`,
+          `${acc} m/s²`,
+          [`${3 * t * t - 4 * t + 2} m/s²`, `${6 * t + 4} m/s²`, `${3 * t - 4} m/s²`],
+          `Acceleration a = dv/dt = 6t − 4. At t = ${t} s, a = 6(${t}) − 4 = ${acc} m/s².`,
+          "phys-calc-acc", r
+        );
+      },
+      // 2: River-Boat / Relative Velocity
+      (i, r) => {
+        const vb = 5 + (i % 4) * 5;
+        const vr = 3 + (i % 3) * 4;
+        const res = Number(Math.sqrt(vb * vb + vr * vr).toFixed(1));
+        return makeQ(
+          `A swimmer can swim at ${vb} km/h in still water and heads perpendicular to the banks of a river flowing at ${vr} km/h. What is the swimmer's resultant speed with respect to the ground?`,
+          `${res} km/h`,
+          [`${vb + vr} km/h`, `${Math.abs(vb - vr)} km/h`, `${Number(((vb + vr) / 2).toFixed(1))} km/h`],
+          `Since swimmer velocity and river flow are perpendicular, v_net = √(v_b² + v_r²) = √(${vb}² + ${vr}²) = ${res} km/h.`,
+          "phys-rel-vel", r
+        );
+      },
+      // 3: Pulley / Atwood Machine Acceleration
+      (i, r) => {
+        const m1 = 6 + (i % 5);
+        const m2 = 4;
+        const acc = Number((((m1 - m2) * 10) / (m1 + m2)).toFixed(2));
+        return makeQ(
+          `Two masses ${m1} kg and ${m2} kg are suspended from the ends of a light inextensible string passing over a frictionless pulley. Taking g = 10 m/s², find the magnitude of acceleration of the system.`,
+          `${acc} m/s²`,
+          [`10.00 m/s²`, `${Number((((m1 + m2) * 10) / (m1 - m2)).toFixed(2))} m/s²`, `${Number(((m1 * 10) / (m1 + m2)).toFixed(2))} m/s²`],
+          `In an Atwood machine, a = (m₁ − m₂)g / (m₁ + m₂) = (${m1} − ${m2}) × 10 / (${m1} + ${m2}) = ${acc} m/s².`,
+          "phys-atwood", r
+        );
+      },
+      // 4: Work-Energy Theorem with Friction
+      (i, r) => {
+        const mass = 2 + (i % 5);
+        const v0 = 10 + (i % 4) * 2;
+        const wFric = -0.5 * mass * v0 * v0;
+        return makeQ(
+          `A ${mass} kg block sliding on a rough horizontal surface with initial speed ${v0} m/s comes to rest after travelling 25 m. What is the net work done by kinetic friction on the block?`,
+          `${wFric} J`,
+          [`+${Math.abs(wFric)} J`, `${-mass * v0} J`, `0 J`],
+          `By the Work-Energy Theorem, W_friction = ΔK = K_f − K_i = 0 − ½(${mass})(${v0})² = ${wFric} J.`,
+          "phys-wet", r
+        );
+      },
+      // 5: Elastic Collision (1D head-on equal mass / wall)
+      (i, r) => {
+        const m1 = 2, m2 = 6, u1 = 8 + (i % 4) * 4;
+        const vCommon = Number(((m1 * u1) / (m1 + m2)).toFixed(1));
+        return makeQ(
+          `A ${m1} kg trolley moving at ${u1} m/s collides and sticks completely to a stationary ${m2} kg trolley on a frictionless track. Find their common velocity after the perfectly inelastic collision.`,
+          `${vCommon} m/s`,
+          [`${u1} m/s`, `${Number((u1 / 2).toFixed(1))} m/s`, `${Number(((m2 * u1) / (m1 + m2)).toFixed(1))} m/s`],
+          `By conservation of linear momentum, m₁u₁ = (m₁ + m₂)v ⇒ v = (${m1} × ${u1}) / (${m1} + ${m2}) = ${vCommon} m/s.`,
+          "phys-collision", r
+        );
+      },
+      // 6: Rotational Kinetic Energy vs Translational KE (Rolling Disc/Sphere)
+      (i, r) => {
+        const shapes = [
+          ["solid sphere", "2 : 5", "I = (2/5)MR² ⇒ K_rot / K_trans = (½Iω²) / (½Mv²) = I / (MR²) = 2/5."],
+          ["uniform solid disc", "1 : 2", "I = ½MR² ⇒ K_rot / K_trans = I / (MR²) = 1/2."],
+          ["thin hollow ring", "1 : 1", "I = MR² ⇒ K_rot / K_trans = I / (MR²) = 1/1."],
+          ["thin hollow spherical shell", "2 : 3", "I = (2/3)MR² ⇒ K_rot / K_trans = I / (MR²) = 2/3."]
+        ][i % 4];
+        return makeQ(
+          `A ${shapes[0]} rolls purely without slipping on a horizontal floor. What is the ratio of its rotational kinetic energy to its translational kinetic energy (K_rot : K_trans)?`,
+          shapes[1],
+          ["3 : 5", "1 : 4", "5 : 7"].filter(x => x !== shapes[1]),
+          shapes[2],
+          "phys-rolling-ratio", r
+        );
+      },
+      // 7: Gravitation Escape Velocity Scaling
+      (i, r) => {
+        const mult = 2 + (i % 3);
+        return makeQ(
+          `A planet has twice the mass of Earth and ${mult} times the radius of Earth. If Earth's escape velocity is vₑ, what is the escape velocity from this planet?`,
+          `√(2/${mult}) vₑ`,
+          [`√(${mult}/2) vₑ`, `(2/${mult}) vₑ`, `2√${mult} vₑ`],
+          `Escape velocity v_esc = √(2GM/R). Scaling M → 2M and R → ${mult}R multiplies vₑ by √(2/${mult}).`,
+          "phys-grav-esc", r
+        );
+      },
+      // 8: Fluid Mechanics (Bernoulli / Torricelli Efflux)
+      (i, r) => {
+        const h = 5 * (1 + (i % 5));
+        const vEfflux = Number(Math.sqrt(20 * h).toFixed(1));
+        return makeQ(
+          `A large open tank is filled with water up to height ${h} m. A small orifice is punched near the bottom. Taking g = 10 m/s², find the speed of efflux of water.`,
+          `${vEfflux} m/s`,
+          [`${Number(Math.sqrt(10 * h).toFixed(1))} m/s`, `${h * 2} m/s`, `${Number((vEfflux / 2).toFixed(1))} m/s`],
+          `By Torricelli's theorem, speed of efflux v = √(2gh) = √(2 × 10 × ${h}) = √${20 * h} ≈ ${vEfflux} m/s.`,
+          "phys-fluids", r
+        );
+      },
+      // 9: Thermodynamics (RMS Speed / Degrees of Freedom)
+      (i, r) => {
+        const gases = [
+          ["monoatomic ideal gas (e.g., He)", "3/2 RT", "Monoatomic gas has f = 3 translational degrees of freedom, so U = (f/2)RT = (3/2)RT."],
+          ["rigid diatomic ideal gas (e.g., O₂ at 300 K)", "5/2 RT", "Diatomic gas at room temperature has f = 5 (3 translational + 2 rotational), so U = (5/2)RT."],
+          ["non-linear polyatomic gas (e.g., CH₄)", "3 RT", "Non-linear polyatomic gas has f = 6 (3 translational + 3 rotational), so U = (6/2)RT = 3RT."]
+        ][i % 3];
+        return makeQ(
+          `According to the equipartition of energy theorem, what is the internal energy of 1 mole of a ${gases[0]} at absolute temperature T?`,
+          gases[1],
+          ["7/2 RT", "1/2 RT", "2 RT"],
+          gases[2],
+          "phys-ktg-dof", r
+        );
+      },
+      // 10: SHM Time Period (Spring-Mass)
+      (i, r) => {
+        const k = 100 * (1 + (i % 4));
+        const m = 4;
+        const omega = Math.sqrt(k / m);
+        return makeQ(
+          `A ${m} kg block attached to an ideal spring of stiffness k = ${k} N/m executes Simple Harmonic Motion on a frictionless table. Find its angular frequency ω.`,
+          `${omega} rad/s`,
+          [`${k / m} rad/s`, `${omega * 2} rad/s`, `${Number((omega / 2).toFixed(1))} rad/s`],
+          `For a spring-mass oscillator, ω = √(k / m) = √(${k} / ${m}) = √${k / m} = ${omega} rad/s.`,
+          "phys-shm", r
+        );
+      },
+      // 11: Capacitor Network (Series vs Parallel)
+      (i, r) => {
+        const c = 6 + (i % 4) * 3;
+        return makeQ(
+          `Three identical capacitors, each of capacitance ${c} μF, are first connected in series and then in parallel. What is the ratio of equivalent capacitance C_parallel : C_series?`,
+          `9 : 1`,
+          [`3 : 1`, `6 : 1`, `1 : 9`],
+          `For n identical capacitors, C_parallel = nC = 3C and C_series = C/n = C/3. Ratio = (3C) / (C/3) = 9 : 1.`,
+          "phys-cap-ratio", r
+        );
+      },
+      // 12: Current Electricity (Wire Stretching Resistance)
+      (i, r) => {
+        const n = 2 + (i % 3);
+        const r0 = 5;
+        const rNew = n * n * r0;
+        return makeQ(
+          `A uniform metallic wire of resistance ${r0} Ω is stretched uniformly until its length becomes ${n} times its original length (keeping volume constant). What is its new resistance?`,
+          `${rNew} Ω`,
+          [`${n * r0} Ω`, `${Number((r0 / n).toFixed(2))} Ω`, `${n * n * n * r0} Ω`],
+          `Since volume V = A·L is constant, stretching length by factor n reduces cross-sectional area by n. Thus R' = n²R = ${n}² × ${r0} = ${rNew} Ω.`,
+          "phys-wire-stretch", r
+        );
+      },
+      // 13: Magnetic Force on Moving Charge (Cyclotron Radius)
+      (i, r) => {
+        const v = 2 + (i % 4);
+        return makeQ(
+          `A proton enters a uniform perpendicular magnetic field with speed v and moves in a circular path of radius R. If its speed is doubled to 2v while keeping B unchanged, what happens to its time period T of revolution?`,
+          `Remains unchanged (T is independent of v)`,
+          [`Becomes 2T`, `Becomes T/2`, `Becomes 4T`],
+          `Cyclotron time period T = 2πm / (qB), which depends only on charge-to-mass ratio and magnetic field, NOT on particle speed.`,
+          "phys-mag-period", r
+        );
+      },
+      // 14: AC Circuits (Power Factor & Impedance)
+      (i, r) => {
+        const R = 30, XL = 70, XC = 30;
+        const Z = 50;
+        return makeQ(
+          `In a series LCR AC circuit, R = ${R} Ω, inductive reactance X_L = ${XL} Ω, and capacitive reactance X_C = ${XC} Ω. Find the impedance Z and power factor cosφ of the circuit.`,
+          `Z = ${Z} Ω, cosφ = 0.6`,
+          [`Z = 130 Ω, cosφ = 0.23`, `Z = 40 Ω, cosφ = 0.75`, `Z = ${Z} Ω, cosφ = 0.8`],
+          `Z = √[R² + (X_L − X_C)²] = √[30² + (70 − 30)²] = √(900 + 1600) = 50 Ω. Power factor cosφ = R / Z = 30 / 50 = 0.6.`,
+          "phys-ac-lcr", r
+        );
+      },
+      // 15: Ray Optics (Prism Minimum Deviation / TIR)
+      (i, r) => {
+        const mu = [1.414, 1.5, 2.0][i % 3];
+        const ans = mu === 1.414 ? "45°" : mu === 2.0 ? "30°" : "sin⁻¹(2/3) ≈ 41.8°";
+        return makeQ(
+          `A light ray travels from a dense glass medium of refractive index μ = ${mu} into air (μ = 1). What is the critical angle θ_c for Total Internal Reflection?`,
+          ans,
+          [`60°`, `90°`, `15°`],
+          `At the critical angle, sin θ_c = 1 / μ = 1 / ${mu} ⇒ θ_c = ${ans}.`,
+          "phys-optics-tir", r
+        );
+      },
+      // 16: Wave Optics (YDSE Fringe Width)
+      (i, r) => {
+        const beta = 0.6;
+        return makeQ(
+          `In Young's Double Slit Experiment, the fringe width in air is ${beta} mm. If the entire apparatus is immersed in water (refractive index μ = 4/3), what is the new fringe width?`,
+          `0.45 mm`,
+          [`0.80 mm`, `0.60 mm`, `0.30 mm`],
+          `In a medium of refractive index μ, wavelength becomes λ' = λ/μ, so fringe width β' = β / μ = 0.6 / (4/3) = 0.45 mm.`,
+          "phys-ydse", r
+        );
+      },
+      // 17: Modern Physics (Bohr Radius & Energy Levels)
+      (i, r) => {
+        const n = 2 + (i % 3);
+        const en = Number((-13.6 / (n * n)).toFixed(2));
+        return makeQ(
+          `According to Bohr's atomic model, what is the total energy of an electron in the n = ${n} stationary orbit of a Hydrogen atom?`,
+          `${en} eV`,
+          [`+${Math.abs(en)} eV`, `${Number((-13.6 / n).toFixed(2))} eV`, `${Number((-27.2 / (n * n)).toFixed(2))} eV`],
+          `For Hydrogen (Z = 1), Eₙ = −13.6 / n² eV = −13.6 / ${n * n} = ${en} eV.`,
+          "phys-bohr", r
+        );
+      }
+    ];
+
+    // ------------------- CHEMISTRY: 15 DISTINCT ARCHETYPES -------------------
+    const chemTemplates = [
+      // 0: Limiting Reagent (Diverse reaction, NOT CO2 every time!)
+      (i, r) => {
+        const nH2 = 4 + (i % 4);
+        const nO2 = 3 + (i % 3);
+        const h2oFormed = Math.min(nH2, 2 * nO2);
+        return makeQ(
+          `In the reaction 2H₂(g) + O₂(g) → 2H₂O(l), ${nH2} moles of H₂ are mixed with ${nO2} moles of O₂. Identify the limiting reagent and moles of H₂O formed.`,
+          `H₂ is limiting; ${h2oFormed} moles of H₂O formed`,
+          [`O₂ is limiting; ${2 * nO2} moles of H₂O formed`, `Both consumed completely; ${nH2 + nO2} moles formed`, `H₂ is limiting; ${nH2 / 2} moles of H₂O formed`],
+          `2 mol H₂ require 1 mol O₂. For ${nH2} mol H₂, only ${nH2 / 2} mol O₂ is needed (we have ${nO2} mol O₂ in excess). Thus H₂ is limiting and forms ${h2oFormed} mol H₂O.`,
+          "chem-limiting", r
+        );
+      },
+      // 1: Quantum Numbers Validity
+      (i, r) => {
+        return makeQ(
+          `Which of the following sets of quantum numbers (n, l, mₗ, mₛ) is NOT permissible for an electron in an atom?`,
+          `n = 3, l = 3, mₗ = −2, mₛ = +1/2`,
+          [`n = 3, l = 2, mₗ = −2, mₛ = −1/2`, `n = 4, l = 0, mₗ = 0, mₛ = +1/2`, `n = 2, l = 1, mₗ = +1, mₛ = −1/2`],
+          `For a given principal quantum number n, the azimuthal quantum number l can only take integer values from 0 to (n − 1). Hence l = 3 is impossible when n = 3.`,
+          "chem-quantum", r
+        );
+      },
+      // 2: Molecular Orbital Theory (Bond Order & Paramagnetism)
+      (i, r) => {
+        const qSet = [
+          ["Which diatomic species has a bond order of 2.5 and is paramagnetic?", "O₂⁺", ["N₂", "C₂", "F₂"], "O₂⁺ has 15 electrons: BO = (10 − 5)/2 = 2.5 with 1 unpaired electron in π*2p orbital."],
+          ["Which molecule is diamagnetic despite having an even number of electrons (12 electrons) due to π-bonding?", "C₂", ["B₂", "O₂", "NO"], "In C₂ (12 e⁻), both π2p_x and π2p_y bonding orbitals are completely filled (BO = 2, zero unpaired electrons)."],
+          ["Arrange O₂, O₂⁻, and O₂²⁻ in decreasing order of O−O bond length:", "O₂²⁻ > O₂⁻ > O₂", ["O₂ > O₂⁻ > O₂²⁻", "O₂⁻ > O₂²⁻ > O₂", "O₂ > O₂²⁻ > O₂⁻"], "Bond orders are O₂ (2.0), O₂⁻ (1.5), and O₂²⁻ (1.0). Lower bond order corresponds to greater bond length."]
+        ][i % 3];
+        return makeQ(qSet[0], qSet[1], qSet[2], qSet[3], "chem-mot", r);
+      },
+      // 3: Chemical Equilibrium (Kp vs Kc)
+      (i, r) => {
+        return makeQ(
+          `For the gas-phase reaction N₂(g) + 3H₂(g) ⇌ 2NH₃(g), what is the correct relationship between Kₚ and K_c?`,
+          `Kₚ = K_c (RT)⁻²`,
+          [`Kₚ = K_c (RT)²`, `Kₚ = K_c`, `Kₚ = K_c (RT)⁻¹`],
+          `Δn_g = moles of gaseous products − moles of gaseous reactants = 2 − (1 + 3) = −2. Since Kₚ = K_c (RT)^(Δn_g), Kₚ = K_c (RT)⁻².`,
+          "chem-kpkc", r
+        );
+      },
+      // 4: Ionic Equilibrium (Buffer / Solubility Product Ksp)
+      (i, r) => {
+        const s = 1e-5;
+        return makeQ(
+          `If the molar solubility of AgCl in pure water at 298 K is 1.0 × 10⁻⁵ mol/L, what is its solubility product constant (K_sp)?`,
+          `1.0 × 10⁻¹⁰`,
+          [`2.0 × 10⁻⁵`, `1.0 × 10⁻⁵`, `4.0 × 10⁻¹⁵`],
+          `AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq). K_sp = [Ag⁺][Cl⁻] = s × s = (10⁻⁵)² = 1.0 × 10⁻¹⁰.`,
+          "chem-ksp", r
+        );
+      },
+      // 5: Thermodynamics (Hess's Law / Intensive vs Extensive)
+      (i, r) => {
+        return makeQ(
+          `Which of the following is an INTENSIVE property (independent of the amount of matter present)?`,
+          `Molar heat capacity and Electrode potential (E°)`,
+          [`Enthalpy (H) and Entropy (S)`, `Internal energy (U) and Volume (V)`, `Gibbs free energy (G) and Mass`],
+          `Intensive properties like temperature, pressure, density, molar heat capacity, and standard electrode potential do not depend on system size.`,
+          "chem-intensive", r
+        );
+      },
+      // 6: Electrochemistry (Faraday's First Law)
+      (i, r) => {
+        const faradays = 2 + (i % 3);
+        const alMoles = Number((faradays / 3).toFixed(2));
+        return makeQ(
+          `How many moles of Aluminium metal are deposited at the cathode when ${faradays} Faradays of electricity are passed through molten Al₂O₃? (Al³⁺ + 3e⁻ → Al)`,
+          `${alMoles} mol`,
+          [`${faradays} mol`, `${faradays * 3} mol`, `${(faradays / 2).toFixed(2)} mol`],
+          `1 mole of Al requires 3 Faradays of charge. Passing ${faradays} F deposits ${faradays}/3 = ${alMoles} moles of Al.`,
+          "chem-faraday", r
+        );
+      },
+      // 7: Chemical Kinetics (Order from Rate Constant Units)
+      (i, r) => {
+        const items = [
+          ["mol L⁻¹ s⁻¹", "Zero-order reaction", ["First-order reaction", "Second-order reaction", "Third-order reaction"], "Units of k for nth order = (mol L⁻¹)^(1−n) s⁻¹. Putting n = 0 gives mol L⁻¹ s⁻¹."],
+          ["s⁻¹", "First-order reaction", ["Zero-order reaction", "Second-order reaction", "Fractional-order reaction"], "For n = 1, (mol L⁻¹)^(1−1) s⁻¹ = s⁻¹."],
+          ["L mol⁻¹ s⁻¹", "Second-order reaction", ["First-order reaction", "Zero-order reaction", "Pseudo first-order reaction"], "For n = 2, (mol L⁻¹)^(1−2) s⁻¹ = mol⁻¹ L s⁻¹."]
+        ][i % 3];
+        return makeQ(
+          `The rate constant k of a chemical reaction has units of ${items[0]}. What is the overall order of this reaction?`,
+          items[1],
+          items[2],
+          items[3],
+          "chem-kinetics-unit", r
+        );
+      },
+      // 8: Solutions (van't Hoff Factor & Boiling Point Elevation)
+      (i, r) => {
+        return makeQ(
+          `Which 0.1 M aqueous solution will exhibit the HIGHEST boiling point at 1 atm pressure (assuming 100% ionisation)?`,
+          `0.1 M Al₂(SO₄)₃ (i = 5)`,
+          [`0.1 M Glucose (i = 1)`, `0.1 M NaCl (i = 2)`, `0.1 M CaCl₂ (i = 3)`],
+          `ΔT_b = i · K_b · m. Al₂(SO₄)₃ dissociates into 2 Al³⁺ + 3 SO₄²⁻ (5 ions, i = 5), giving the largest elevation in boiling point.`,
+          "chem-vant-hoff", r
+        );
+      },
+      // 9: Periodic Trends (Ionisation Enthalpy / Electron Gain)
+      (i, r) => {
+        return makeQ(
+          `Why is the first ionisation enthalpy of Nitrogen (Z = 7) higher than that of Oxygen (Z = 8)?`,
+          `Nitrogen has an extra-stable half-filled 2p³ subshell configuration`,
+          [`Oxygen has a smaller nuclear charge than Nitrogen`, `Nitrogen has a larger atomic radius than Oxygen`, `Oxygen has a completely filled 2p⁶ subshell`],
+          `N (1s² 2s² 2p³) has a symmetrical half-filled 2p subshell with high exchange energy, whereas O (1s² 2s² 2p⁴) experiences inter-electronic repulsion in a paired 2p orbital.`,
+          "chem-periodic", r
+        );
+      },
+      // 10: Coordination Chemistry (Isomerism & IUPAC)
+      (i, r) => {
+        return makeQ(
+          `What type of structural isomerism is exhibited by the pair [Co(NH₃)₅Br]SO₄ and [Co(NH₃)₅(SO₄)]Br?`,
+          `Ionisation isomerism`,
+          [`Linkage isomerism`, `Hydrate isomerism`, `Coordination isomerism`],
+          `Both complexes have the same molecular formula but yield different ions in aqueous solution (SO₄²⁻ vs Br⁻), which is ionisation isomerism.`,
+          "chem-coord-iso", r
+        );
+      },
+      // 11: GOC (Acidity of Phenols & Carboxylic Acids)
+      (i, r) => {
+        return makeQ(
+          `Arrange the following in decreasing order of acidic strength: p-Nitrophenol (I), Phenol (II), and p-Cresol (III).`,
+          `I > II > III`,
+          [`III > II > I`, `II > I > III`, `I > III > II`],
+          `Electron-withdrawing −NO₂ (−M, −I) stabilises the phenoxide ion (increasing acidity), while electron-donating −CH₃ (+I, +H) destabilises it.`,
+          "chem-goc-acid", r
+        );
+      },
+      // 12: Named Organic Reactions
+      (i, r) => {
+        const rxns = [
+          ["Reimer-Tiemann reaction", "Phenol with CHCl₃ and aqueous NaOH followed by acidification", "Salicylaldehyde (o-hydroxybenzaldehyde)", "Introduces a −CHO group ortho to the phenolic −OH via dichlorocarbene (:CCl₂) electrophile."],
+          ["Rosenmund reduction", "Acyl chloride (RCOCl) with H₂ over Pd-BaSO₄ catalyst", "Aldehyde (RCHO)", "BaSO₄ poisons the Pd catalyst to prevent further reduction of the aldehyde into a primary alcohol."],
+          ["Hoffmann bromamide degradation", "Primary amide (RCONH₂) with Br₂ and alcoholic/aqueous NaOH", "Primary amine with one carbon LESS (RNH₂)", "Migratory rearrangement removes the carbonyl carbon as carbonate, yielding a 1° amine with one fewer carbon."]
+        ][i % 3];
+        return makeQ(
+          `In ${rxns[0]}, treating ${rxns[1]} yields which major organic product?`,
+          rxns[2],
+          [`Carboxylic acid`, `Alkane`, `Secondary alcohol`],
+          rxns[3],
+          "chem-named-rxn", r
+        );
+      },
+      // 13: Stereochemistry (Optical Activity / Chiral Centre)
+      (i, r) => {
+        return makeQ(
+          `How many stereoisomers are possible for 2,3-dichlorobutane (CH₃−CHCl−CHCl−CH₃)?`,
+          `3 (one pair of enantiomers + one optically inactive meso compound)`,
+          [`4 (all optically active)`, `2 (one racemic pair)`, `1 (achiral molecule)`],
+          `Although 2,3-dichlorobutane has 2 chiral centres, the molecule is symmetrical; two configurations are identical due to a plane of symmetry (meso form), leaving 3 stereoisomers.`,
+          "chem-stereo", r
+        );
+      },
+      // 14: Biomolecules (Proteins & Carbohydrates)
+      (i, r) => {
+        return makeQ(
+          `Which disaccharide is a NON-REDUCING sugar because the glycosidic linkage involves both anomeric carbons (C1 of α-glucose and C2 of β-fructose)?`,
+          `Sucrose`,
+          [`Maltose`, `Lactose`, `Cellobiose`],
+          `In sucrose, both reducing hemiacetal/hemiketal groups are locked in the C1−C2 glycosidic bond, so it gives negative Fehling's and Tollens' tests.`,
+          "chem-biomol", r
+        );
+      }
+    ];
+
+    // ------------------- MATHEMATICS: 15 DISTINCT ARCHETYPES -------------------
+    const mathTemplates = [
+      // 0: Complex Numbers (Modulus & Argument)
+      (i, r) => {
+        return makeQ(
+          `Find the modulus and principal argument of the complex number z = −1 + i√3.`,
+          `|z| = 2, arg(z) = 2π/3`,
+          [`|z| = 2, arg(z) = π/3`, `|z| = 4, arg(z) = 2π/3`, `|z| = 2, arg(z) = −2π/3`],
+          `|z| = √[(−1)² + (√3)²] = 2. Since z lies in the second quadrant, θ = π − tan⁻¹(√3) = π − π/3 = 2π/3.`,
+          "math-complex", r
+        );
+      },
+      // 1: Quadratic Equations (Nature of Roots / Vieta)
+      (i, r) => {
+        const k = 4 + (i % 5) * 2;
+        return makeQ(
+          `For what positive value of p does the quadratic equation x² − px + ${k * k / 4} = 0 have real and equal roots?`,
+          `${k}`,
+          [`${k / 2}`, `${k * 2}`, `${k + 4}`],
+          `For equal roots, Discriminant D = b² − 4ac = 0 ⇒ p² − 4(1)(${k * k / 4}) = 0 ⇒ p² = ${k * k} ⇒ p = ${k}.`,
+          "math-quad", r
+        );
+      },
+      // 2: Matrices (Symmetric & Skew-Symmetric)
+      (i, r) => {
+        return makeQ(
+          `If A is a skew-symmetric matrix of odd order n = 3, what is the value of its determinant |A|?`,
+          `0`,
+          [`1`, `−1`, `3`],
+          `For any skew-symmetric matrix, Aᵀ = −A. Taking determinants: |Aᵀ| = |−A| ⇒ |A| = (−1)³|A| = −|A| ⇒ 2|A| = 0 ⇒ |A| = 0.`,
+          "math-matrix", r
+        );
+      },
+      // 3: Permutations & Combinations (Circular / Word Arrangements)
+      (i, r) => {
+        const n = 5 + (i % 4);
+        let fact = 1;
+        for (let k = 2; k <= n - 1; k++) fact *= k;
+        return makeQ(
+          `In how many distinct ways can ${n} delegates be seated around a round conference table?`,
+          `${fact}`,
+          [`${fact * n}`, `${fact / 2}`, `${n * (n - 1)}`],
+          `The number of circular permutations of n distinct objects is (n − 1)! = (${n} − 1)! = ${fact}.`,
+          "math-pnc", r
+        );
+      },
+      // 4: Binomial Theorem (Middle Term / Sum of Coefficients)
+      (i, r) => {
+        const n = 6 + (i % 4);
+        return makeQ(
+          `Find the sum of all binomial coefficients in the expansion of (1 + x)^${n}.`,
+          `${Math.pow(2, n)}`,
+          [`${Math.pow(2, n - 1)}`, `${n * n}`, `${Math.pow(2, n) - 1}`],
+          `Putting x = 1 in (1 + x)ⁿ = ⁿC₀ + ⁿC₁ + ... + ⁿCₙ gives 2^${n} = ${Math.pow(2, n)}.`,
+          "math-binom", r
+        );
+      },
+      // 5: Sequences & Series (Infinite GP)
+      (i, r) => {
+        const a = 6 + (i % 5) * 3;
+        const sumInf = (a * 3) / 2;
+        return makeQ(
+          `Find the sum to infinity of the Geometric Progression: ${a}, ${a / 3}, ${a / 9}, ...`,
+          `${sumInf}`,
+          [`${a * 2}`, `${a * 3}`, `${(a * 2) / 3}`],
+          `First term a = ${a}, common ratio r = 1/3 (|r| < 1). S_∞ = a / (1 − r) = ${a} / (1 − 1/3) = ${sumInf}.`,
+          "math-gp", r
+        );
+      },
+      // 6: Limits (Standard Exponential / L'Hôpital)
+      (i, r) => {
+        const k = 3 + (i % 6);
+        return makeQ(
+          `Evaluate: lim(x → ∞) (1 + ${k}/x)^x`,
+          `e^${k}`,
+          [`e`, `${k}e`, `1`],
+          `Using the standard limit lim(x → ∞) (1 + k/x)^x = eᵏ, the limit evaluates directly to e^${k}.`,
+          "math-limit", r
+        );
+      },
+      // 7: Differentiation (Chain Rule / Parametric)
+      (i, r) => {
+        return makeQ(
+          `If y = ln(sin x), find dy/dx at x = π/4.`,
+          `1`,
+          [`√2`, `1/√2`, `−1`],
+          `dy/dx = (1 / sin x) · cos x = cot x. At x = π/4, cot(π/4) = 1.`,
+          "math-diff", r
+        );
+      },
+      // 8: Application of Derivatives (Maxima / Minima)
+      (i, r) => {
+        const S = 10 + (i % 5) * 2;
+        const maxProd = (S / 2) * (S / 2);
+        return makeQ(
+          `Two positive real numbers x and y satisfy x + y = ${S}. What is the maximum possible value of their product xy?`,
+          `${maxProd}`,
+          [`${S * S}`, `${S * 2}`, `${maxProd - 4}`],
+          `By AM ≥ GM, (x + y)/2 ≥ √(xy) ⇒ xy ≤ (${S}/2)² = ${maxProd}, achieved when x = y = ${S / 2}.`,
+          "math-aod", r
+        );
+      },
+      // 9: Definite Integration (King's Property)
+      (i, r) => {
+        return makeQ(
+          `Evaluate the definite integral: ∫₀^(π/2) [ sin³x / (sin³x + cos³x) ] dx`,
+          `π/4`,
+          [`π/2`, `1`, `0`],
+          `Applying King's property ∫₀ᵃ f(x)dx = ∫₀ᵃ f(a−x)dx and adding both integrals gives 2I = ∫₀^(π/2) 1 dx = π/2 ⇒ I = π/4.`,
+          "math-int", r
+        );
+      },
+      // 10: Differential Equations (Order & Degree)
+      (i, r) => {
+        return makeQ(
+          `Determine the order and degree of the differential equation: (d²y/dx²)³ + (dy/dx)⁴ + y = 0`,
+          `Order = 2, Degree = 3`,
+          [`Order = 3, Degree = 2`, `Order = 2, Degree = 4`, `Order = 4, Degree = 3`],
+          `The highest-order derivative present is d²y/dx² (order = 2), and its highest exponent in polynomial form is 3 (degree = 3).`,
+          "math-de", r
+        );
+      },
+      // 11: Straight Lines (Distance between parallel lines)
+      (i, r) => {
+        return makeQ(
+          `Find the perpendicular distance between the two parallel straight lines 3x + 4y − 5 = 0 and 3x + 4y + 15 = 0.`,
+          `4 units`,
+          [`2 units`, `20 units`, `5 units`],
+          `Distance d = |c₁ − c₂| / √(a² + b²) = |15 − (−5)| / √(3² + 4²) = 20 / 5 = 4 units.`,
+          "math-line", r
+        );
+      },
+      // 12: Conic Sections (Eccentricity of Ellipse / Hyperbola)
+      (i, r) => {
+        return makeQ(
+          `Find the eccentricity e of the ellipse x²/25 + y²/9 = 1.`,
+          `4/5`,
+          [`3/5`, `5/4`, `√34 / 5`],
+          `Here a² = 25 and b² = 9. For an ellipse, e = √(1 − b²/a²) = √(1 − 9/25) = √(16/25) = 4/5.`,
+          "math-conic", r
+        );
+      },
+      // 13: Vectors & 3D Geometry (Cross Product / Direction Cosines)
+      (i, r) => {
+        return makeQ(
+          `If a line makes angles 90°, 135°, and 45° with the positive x, y, and z axes respectively, find its direction cosines (l, m, n).`,
+          `(0, −1/√2, 1/√2)`,
+          [`(1, −1/√2, 1/√2)`, `(0, 1/√2, 1/√2)`, `(0, −1/2, 1/2)`],
+          `Direction cosines are (cos 90°, cos 135°, cos 45°) = (0, −1/√2, 1/√2). Note l² + m² + n² = 0 + ½ + ½ = 1.`,
+          "math-3d", r
+        );
+      },
+      // 14: Probability (Conditional / Dice)
+      (i, r) => {
+        return makeQ(
+          `Two fair six-sided dice are rolled simultaneously. What is the probability of obtaining a sum equal to 9?`,
+          `1/9`,
+          [`1/6`, `1/12`, `5/36`],
+          `Total outcomes = 36. Favourable pairs for sum 9 are (3,6), (4,5), (5,4), (6,3) → 4 outcomes. P = 4/36 = 1/9.`,
+          "math-prob", r
+        );
+      }
+    ];
+
+    // ------------------- BIOLOGY: 14 DISTINCT NCERT ARCHETYPES -------------------
+    const bioTemplates = [
+      (i, r) => makeQ("Which enzyme fixes atmospheric CO₂ into oxaloacetate (OAA) in mesophyll cells of C₄ plants like maize and sorghum?", "PEP carboxylase (PEPcase)", ["RuBisCO", "Carbonic anhydrase", "Nitrate reductase"], "In C₄ plants, mesophyll cells lack RuBisCO and use PEPcase (high affinity for HCO₃⁻, zero oxygenase activity) to form 4C OAA.", "bio-c4", r),
+      (i, r) => makeQ("During which sub-stage of Prophase I of meiosis does crossing over occur between non-sister chromatids of homologous chromosomes?", "Pachytene", ["Leptotene", "Zygotene", "Diakinesis"], "Crossing over (recombination) occurs during Pachytene via recombinase; synapsis occurs in Zygotene.", "bio-meiosis", r),
+      (i, r) => makeQ("In a normal human ECG, what does the QRS complex represent?", "Depolarisation of the ventricles", ["Depolarisation of the atria", "Repolarisation of the ventricles", "Joint diastole of heart chambers"], "P-wave = atrial depolarisation; QRS complex = ventricular depolarisation; T-wave = ventricular repolarisation.", "bio-ecg", r),
+      (i, r) => makeQ("Which restriction endonuclease recognition sequence is palindromic and cleaved by EcoRI?", "5'-GAATTC-3' / 3'-CTTAAG-5'", ["5'-GGATCC-3' / 3'-CCTAGG-5'", "5'-AAGCTT-3' / 3'-TTCGAA-5'", "5'-CTGCAG-3' / 3'-GACGTC-5'"], "EcoRI recognises 5'-GAATTC-3' and cuts between G and A to create sticky ends.", "bio-ecori", r),
+      (i, r) => makeQ("In the lac operon of E. coli, what happens when lactose is added to the growth medium?", "Lactose acts as an inducer, inactivates the repressor, and switches ON transcription of lacZ, lacY, and lacA", ["Repressor binds tightly to the operator and blocks RNA polymerase", "cAMP levels drop sharply and halt β-galactosidase synthesis", "Lactose degrades the promoter sequence"], "Allolactose binds to the repressor protein, causing an allosteric change so it detaches from the operator.", "bio-lac", r),
+      (i, r) => makeQ("Which hormone is secreted by juxtaglomerular (JG) cells of the kidney in response to a fall in glomerular filtration rate (GFR)?", "Renin", ["Erythropoietin", "Atrial Natriuretic Factor (ANF)", "Aldosterone"], "JG cells release Renin, activating the Renin-Angiotensin-Aldosterone System (RAAS) to restore blood pressure and GFR.", "bio-raas", r),
+      (i, r) => makeQ("Double fertilisation in flowering plants (angiosperms) consists of:", "Syngamy (forming diploid zygote) + Triple fusion (forming triploid PEN)", ["Fusion of two male gametes with the egg cell", "Fusion of pollen tube with synergids only", "Formation of diploid endosperm without syngamy"], "One male gamete fuses with the egg (syngamy → 2n zygote); the second fuses with polar nuclei (triple fusion → 3n PEN).", "bio-angio", r),
+      (i, r) => makeQ("Which immunoglobulin class is abundant in human colostrum and provides passive mucosal immunity to infants?", "IgA", ["IgE", "IgM", "IgD"], "Secretory IgA is found in colostrum, tears, and saliva, protecting mucosal surfaces.", "bio-iga", r),
+      (i, r) => makeQ("Why is the pyramid of energy ALWAYS upright in every natural ecosystem?", "Energy flow is unidirectional and only ~10% is transferred to the next trophic level", ["Producers always have the largest individual body size", "Decomposers recycle 100% of heat energy back to plants", "Secondary consumers outnumber primary producers"], "By Lindeman's 10% law and the second law of thermodynamics, heat is lost at each trophic transfer.", "bio-eco", r),
+      (i, r) => makeQ("Which chromosomal aneuploidy is caused by trisomy of chromosome 21?", "Down's syndrome", ["Klinefelter's syndrome (47, XXY)", "Turner's syndrome (45, XO)", "Phenylketonuria"], "Down's syndrome results from an extra copy of chromosome 21 (total 47 chromosomes).", "bio-down", r),
+      (i, r) => makeQ("Which cell organelle is responsible for packaging materials into vesicles and forming glycoproteins and glycolipids?", "Golgi apparatus", ["Smooth Endoplasmic Reticulum", "Peroxisome", "Centrosome"], "The Golgi apparatus modifies proteins/lipids received from the ER and synthesises glycoproteins and glycolipids.", "bio-golgi", r),
+      (i, r) => makeQ("What is the net gain of ATP molecules directly produced per glucose molecule during glycolysis?", "2 ATP", ["4 ATP", "36 ATP", "38 ATP"], "Glycolysis consumes 2 ATP in the preparatory phase and generates 4 ATP in the payoff phase, giving a net gain of 2 ATP (+ 2 NADH).", "bio-glyco", r),
+      (i, r) => makeQ("Which part of the human brain regulates body temperature, hunger, thirst, and pituitary hormone secretion?", "Hypothalamus", ["Cerebellum", "Medulla oblongata", "Corpus callosum"], "The hypothalamus contains thermoregulatory and satiety centres and secretes releasing/inhibiting neurohormones.", "bio-brain", r),
+      (i, r) => makeQ("In Mendel's dihybrid cross (RrYy × RrYy), what is the phenotypic ratio obtained in the F₂ generation?", "9 : 3 : 3 : 1", ["3 : 1", "1 : 2 : 1", "9 : 7"], "Independent assortment of two unlinked traits yields 9 Round-Yellow : 3 Round-Green : 3 Wrinkled-Yellow : 1 Wrinkled-Green.", "bio-mendel", r)
+    ];
+
+    // ------------------- MENTAL MATH: 12 FAST-CALCULATION ARCHETYPES -------------------
+    const mentalMathTemplates = [
+      // 0: Square ending in 5
+      (i, r) => {
+        const tens = 2 + (i % 8);
+        const n = tens * 10 + 5;
+        const ans = n * n;
+        return makeQ(`Mental Math: Calculate ${n}²`, `${ans}`, [`${ans - 100}`, `${ans + 100}`, `${tens * 100 + 25}`], `Trick: ${tens} × (${tens} + 1) = ${tens * (tens + 1)}, append 25 → ${ans}.`, "mm-sq5", r);
+      },
+      // 1: (a-b)(a+b) multiplication
+      (i, r) => {
+        const base = [20, 30, 40, 50, 60][i % 5];
+        const d = 2 + (i % 4);
+        const a = base - d, b = base + d;
+        const ans = a * b;
+        return makeQ(`Mental Math: ${a} × ${b} = ?`, `${ans}`, [`${base * base}`, `${ans + 2 * d}`, `${ans - 10}`], `Trick: (${base} − ${d})(${base} + ${d}) = ${base}² − ${d}² = ${base * base} − ${d * d} = ${ans}.`, "mm-diffsq", r);
+      },
+      // 2: Fast remainder mod 9 (Digital root)
+      (i, r) => {
+        const num = 1234 + i * 137;
+        const rem = num % 9;
+        return makeQ(`Mental Math: Remainder when ${num} is divided by 9?`, `${rem}`, [`${(rem + 1) % 9}`, `${(rem + 3) % 9}`, `${(rem + 5) % 9}`], `Sum of digits of ${num} modulo 9 gives ${rem}.`, "mm-mod9", r);
+      },
+      // 3: Percentage of a number
+      (i, r) => {
+        const pct = [15, 25, 35, 45, 75][i % 5];
+        const val = [120, 160, 240, 320, 480][i % 5];
+        const ans = (pct * val) / 100;
+        return makeQ(`Mental Math: Find ${pct}% of ${val}`, `${ans}`, [`${ans + 12}`, `${ans - 15}`, `${Math.round(ans * 1.2)}`], `${pct}% of ${val} = (${pct}/100) × ${val} = ${ans}.`, "mm-pct", r);
+      },
+      // 4: Multiply by 11
+      (i, r) => {
+        const n = 23 + (i % 65);
+        const ans = n * 11;
+        return makeQ(`Mental Math: ${n} × 11 = ?`, `${ans}`, [`${ans + 11}`, `${ans - 10}`, `${n * 10 + 1}`], `Split digits of ${n} and place their sum in the middle → ${ans}.`, "mm-mul11", r);
+      },
+      // 5: Cube of small integer
+      (i, r) => {
+        const n = 6 + (i % 7);
+        const ans = n * n * n;
+        return makeQ(`Mental Math: Calculate ${n}³`, `${ans}`, [`${n * n * (n - 1)}`, `${ans + n * n}`, `${n * n * 6}`], `${n}³ = ${n} × ${n} × ${n} = ${ans}.`, "mm-cube", r);
+      },
+      // 6: Quick GCD
+      (i, r) => {
+        const g = 6 + (i % 7);
+        const a = g * 3, b = g * 5;
+        return makeQ(`Mental Math: Find gcd(${a}, ${b})`, `${g}`, [`${g * 2}`, `${3}`, `${5}`], `${a} = 3 × ${g} and ${b} = 5 × ${g}; since gcd(3,5) = 1, gcd = ${g}.`, "mm-gcd", r);
+      },
+      // 7: Sum of first n natural numbers
+      (i, r) => {
+        const n = 15 + (i % 16);
+        const ans = (n * (n + 1)) / 2;
+        return makeQ(`Mental Math: 1 + 2 + 3 + ... + ${n} = ?`, `${ans}`, [`${n * n}`, `${ans + n}`, `${ans - n}`], `Sum = n(n + 1)/2 = ${n} × ${n + 1} / 2 = ${ans}.`, "mm-sum", r);
+      }
+    ];
+
+    // Pick topic-relevant templates FIRST, then interleave ALL other subject templates
+    // so NO TWO CONSECUTIVE QUESTIONS ever share the same archetype!
+    function build(subject, topic, count = 100) {
+      const r = rng(hash(subject + "|" + topic + "|v3"));
+      let poolTemplates;
+      if (subject === "Physics") poolTemplates = physicsTemplates;
+      else if (subject === "Chemistry") poolTemplates = chemTemplates;
+      else if (subject === "Mathematics") poolTemplates = mathTemplates;
+      else if (subject === "Mental Math") poolTemplates = mentalMathTemplates;
+      else poolTemplates = bioTemplates;
+
+      // Shuffle template order per chapter so every chapter starts with different variety
+      const ordered = shuffle(poolTemplates, r);
+      const out = [];
+      let lastArchetype = "";
+
+      for (let i = 0; i < count; i++) {
+        // Rotate strictly across different templates so consecutive questions are NEVER the same type
+        let tplIdx = i % ordered.length;
+        let qObj = ordered[tplIdx](i + Math.floor(r() * 5), r);
+
+        if (qObj.archetype === lastArchetype && ordered.length > 1) {
+          tplIdx = (tplIdx + 1) % ordered.length;
+          qObj = ordered[tplIdx](i + 7, r);
+        }
+        lastArchetype = qObj.archetype;
+
+        qObj.topic = topic;
+        qObj.subject = subject;
+        qObj.tag = subject === "Mental Math" ? "IOQM Speed Drill" : (i % 3 === 0 ? "JEE Main Pattern" : i % 3 === 1 ? "Multi-Concept Check" : "Rank Booster");
+        out.push(qObj);
+      }
+      return out;
+    }
+
+    return { build, mentalMathTemplates };
+  })();
+
+  // State & Navigation
+  let currentSubject = Object.keys(syllabus[state.aim])[0];
+  let practiceQuestions = [], pIndex = 0, pAnswered = false, pTopic = "";
+  let flashIndex = 0, flipped = false, activeFlashCards = [];
+  let mockQuestions = [], mockIndex = 0, mockCorrect = 0, mockWrong = 0, mockAnswered = false, mockTitle = "75-QUESTION FULL MOCK";
+  let mockResults = [], mockTimerId = null, mockSecondsLeft = 0;
+
+  // Mental Math Sprint State
+  let mmTimerId = null, mmTimeLeft = 60, mmTimed = true, mmStreak = 0, mmScore = 0, mmCur = null, mmCount = 0;
+
+  function go(id) {
+    document.querySelectorAll(".section").forEach(s => s.classList.remove("show"));
+    const target = document.getElementById(id);
+    if (target) target.classList.add("show");
+    document.querySelectorAll(".nav button").forEach(b => b.classList.toggle("active", b.dataset.go === id));
+    const titles = {
+      dashboard: "Dashboard",
+      learn: "Chapter-wise Practice",
+      mental: "Mental Math Sprint (IOQM)",
+      pyq: "Exam Pattern & Blueprint",
+      flash: "Formula & Concept Cards",
+      tests: "NTA-Style Mock Tests",
+      progress: "Performance Analytics",
+      settings: "Exam & Level Settings"
+    };
+    document.getElementById("pageTitle").textContent = titles[id] || "Dashboard";
+  }
+
+  function updateUI() {
+    const acc = state.done ? Math.round((state.correct / state.done) * 100) : 0;
+    const mDisplay = Math.min(100, Math.round(state.mastery));
+    ["topXP", "sideXP", "pXP"].forEach(id => document.getElementById(id).textContent = state.xp);
+    document.getElementById("topLevel").textContent = state.level;
+    document.getElementById("sideName").textContent = state.name;
+    document.getElementById("sideAim").textContent = state.aim;
+    document.getElementById("sideScore").textContent = `Marks: ${state.marks}`;
+    document.getElementById("sideBar").style.width = mDisplay + "%";
+    document.getElementById("dashAim").textContent = state.aim;
+    document.getElementById("dashTrack").textContent = Object.keys(syllabus[state.aim]).join(" · ");
+    document.getElementById("statDone").textContent = state.done;
+    document.getElementById("statAccuracy").textContent = state.done ? acc + "%" : "—";
+    document.getElementById("statMarks").textContent = state.marks;
+    document.getElementById("masterBar").style.width = mDisplay + "%";
+    document.getElementById("masterText").textContent = mDisplay + "%";
+    document.getElementById("pDone").textContent = state.done;
+    document.getElementById("pAcc").textContent = acc + "%";
+    document.getElementById("pMarks").textContent = state.marks;
+    document.getElementById("pBar").style.width = mDisplay + "%";
+    document.getElementById("pLevelText").textContent = `${state.aim} (${state.level}) · ${mDisplay}% overall mastery · +4 / −1 official marking scheme.`;
+    document.getElementById("aimSelect").value = state.aim;
+    document.getElementById("quickAimSwitch").value = state.aim;
+    document.getElementById("levelSelect").value = state.level;
+    document.getElementById("settingsLevel").value = state.level;
+    document.getElementById("nameInput").value = state.name;
+    document.getElementById("mockExamBadge").textContent = state.aim;
+    renderSubjects();
+  }
+
+  function renderSubjects() {
+    const keys = Object.keys(syllabus[state.aim]);
+    if (!keys.includes(currentSubject)) currentSubject = keys[0];
+    const html = keys.map(s => `
+      <div class="subject" data-pick-subject="${s}">
+        <div class="row">
+          <h3>${s}</h3>
+          <span class="pill ${s === "Mental Math" ? "gold" : "blue"}">${syllabus[state.aim][s].length * 100} Qs</span>
+        </div>
+        <div class="tagline">${syllabus[state.aim][s].length} chapters · Diverse rotating problem bank</div>
+      </div>`).join("");
+    document.getElementById("subjectTiles").innerHTML = html;
+    document.getElementById("dashSubjects").innerHTML = html;
+  }
+
+  function renderTopics() {
+    const arr = syllabus[state.aim][currentSubject] || [];
+    document.getElementById("topicTitle").textContent = `${currentSubject} (${state.aim})`;
+    document.getElementById("topicLevel").textContent = state.level.toUpperCase();
+    document.getElementById("topicList").innerHTML = arr.map((t, i) => `
+      <div class="tile">
+        <b>${t}</b>
+        <p class="tagline">100 distinct questions · Every question tests a fresh concept</p>
+        <button type="button" class="btn secondary" data-start-topic="${i}">Practice 100 Qs →</button>
+      </div>`).join("");
+  }
+
+  function startPractice(topicIdx) {
+    pTopic = (syllabus[state.aim][currentSubject] || [])[topicIdx];
+    if (!pTopic) return;
+    practiceQuestions = TX.build(currentSubject, pTopic, 100);
+    pIndex = 0;
+    const box = document.getElementById("practiceBox");
+    box.classList.remove("hidden");
+    renderPracticeQuestion();
+    box.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function renderPracticeQuestion() {
+    const box = document.getElementById("practiceBox");
+    const q = practiceQuestions[pIndex];
+    pAnswered = false;
+    box.innerHTML = `
+      <div class="row">
+        <div class="eyebrow">${q.subject.toUpperCase()} · ${q.tag} · Q${pIndex + 1} OF ${practiceQuestions.length}</div>
+        <span class="pill">${pTopic}</span>
+      </div>
+      <div class="progress"><i style="width:${((pIndex + 1) / practiceQuestions.length) * 100}%"></i></div>
+      <div class="question">${q.q}</div>
+      <div id="practiceOpts">
+        ${q.o.map((o, i) => `
+          <button type="button" class="option" data-p-opt="${i}">
+            <span class="opt-key">${String.fromCharCode(65 + i)}</span>
+            <span>${o}</span>
+          </button>`).join("")}
+      </div>
+      <div id="practiceFeedback"></div>
+      <div class="row" style="margin-top:12px">
+        <span class="tagline">Marking: +4 Correct · −1 Incorrect</span>
+        <div class="row">
+          ${pIndex > 0 ? `<button type="button" class="btn ghost" id="practicePrevBtn">← Prev</button>` : ""}
+          <button type="button" class="btn hidden" id="practiceNextBtn">${pIndex === practiceQuestions.length - 1 ? "Finish Chapter Set" : "Next Question →"}</button>
+        </div>
+      </div>`;
+  }
+
+  function handlePracticeAnswer(choice) {
+    if (pAnswered) return;
+    pAnswered = true;
+    const q = practiceQuestions[pIndex];
+    const ok = choice === q.a;
+    state.done++;
+    if (ok) {
+      state.correct++;
+      state.marks += 4;
+      state.xp += 15;
+      state.mastery = Math.min(100, state.mastery + 0.5);
+    } else {
+      state.marks -= 1;
+      state.xp += 2;
+    }
+    document.querySelectorAll("#practiceOpts .option").forEach((btn, idx) => {
+      if (idx === q.a) btn.classList.add("correct");
+      else if (idx === choice) btn.classList.add("wrong");
+    });
+    document.getElementById("practiceFeedback").innerHTML = `
+      <div class="notice ${ok ? "ok" : "bad"}">
+        <b>${ok ? "✓ Correct! (+4 Marks, +15 XP)" : `✗ Incorrect (−1 Mark) · Correct Option: ${String.fromCharCode(65 + q.a)}`}</b><br>
+        <span style="display:block;margin-top:4px"><b>Solution:</b> ${q.e}</span>
+      </div>`;
+    document.getElementById("practiceNextBtn").classList.remove("hidden");
+    save();
+  }
+
+  // Mental Math Sprint Logic
+  function startMentalMath(timed) {
+    mmTimed = timed;
+    mmStreak = 0;
+    mmScore = 0;
+    mmCount = 0;
+    mmTimeLeft = 60;
+    if (mmTimerId) clearInterval(mmTimerId);
+
+    const arena = document.getElementById("mmArena");
+    arena.classList.remove("hidden");
+    document.getElementById("mmStreak").textContent = "0";
+    document.getElementById("mmScore").textContent = "0";
+    document.getElementById("mmFeedback").textContent = "";
+
+    const timerPill = document.getElementById("mmTimerPill");
+    if (timed) {
+      timerPill.textContent = "⏱ 60s";
+      mmTimerId = setInterval(() => {
+        mmTimeLeft--;
+        timerPill.textContent = `⏱ ${mmTimeLeft}s`;
+        if (mmTimeLeft <= 0) {
+          clearInterval(mmTimerId);
+          document.getElementById("mmQuestion").textContent = `Time's Up! Final Score: ${mmScore}`;
+          document.getElementById("mmOptions").innerHTML = "";
+          document.getElementById("mmFeedback").innerHTML = `<span style="color:var(--cyan)">Great speed session! Click Start 60-Second Sprint to beat your record.</span>`;
+        }
+      }, 1000);
+    } else {
+      timerPill.textContent = "∞ Untimed Practice";
+    }
+    nextMentalMath();
+  }
+
+  function nextMentalMath() {
+    const mode = document.getElementById("mmMode").value;
+    const all = TX.mentalMathTemplates;
+    let chosenIdx = mmCount % all.length;
+    if (mode === "squares") chosenIdx = [0, 1, 5][mmCount % 3];
+    else if (mode === "mod") chosenIdx = [2, 6, 7][mmCount % 3];
+    else if (mode === "percent") chosenIdx = [3, 4, 7][mmCount % 3];
+
+    mmCount++;
+    const seedFn = () => Math.random();
+    mmCur = all[chosenIdx](mmCount + Math.floor(Math.random() * 20), seedFn);
+
+    document.getElementById("mmQuestion").textContent = mmCur.q.replace("Mental Math: ", "");
+    document.getElementById("mmOptions").innerHTML = mmCur.o.map((opt, idx) => `
+      <button type="button" class="btn secondary" style="justify-content:center;font-size:18px;padding:14px" data-mm-opt="${idx}">${opt}</button>
+    `).join("");
+  }
+
+  // Flashcards
+  function buildFlashCards(subject, topic) {
+    const bank = factBank[subject] || factBank.Physics;
+    const chosen = bank.filter(x => !topic || x[2] === topic);
+    return chosen.flatMap(x => [
+      { front: `Formula / Core Concept: ${x[0]}`, back: x[1] },
+      { front: `Exam Application Check — What is the exact rule for ${x[0]}?`, back: x[1] }
+    ]);
+  }
+
+  function fillFlash() {
+    const sel = document.getElementById("flashSubject");
+    const subs = Object.keys(syllabus[state.aim]);
+    sel.innerHTML = subs.map(s => `<option value="${s}">${s}</option>`).join("");
+    sel.value = subs[0];
+    flashSubjectChanged();
+  }
+
+  function flashSubjectChanged() {
+    const s = document.getElementById("flashSubject").value;
+    const topics = [...new Set((factBank[s] || []).map(x => x[2]))];
+    document.getElementById("flashTopic").innerHTML = `<option value="*">All High-Yield Chapters</option>` + topics.map(t => `<option value="${t}">${t}</option>`).join("");
+    flashIndex = 0;
+    flipped = false;
+    renderFlash();
+  }
+
+  function renderFlash() {
+    const s = document.getElementById("flashSubject").value;
+    const t = document.getElementById("flashTopic").value;
+    activeFlashCards = buildFlashCards(s, t === "*" ? null : t);
+    if (!activeFlashCards.length) {
+      document.getElementById("flashCard").textContent = "Select All High-Yield Chapters to view all formula cards for this subject.";
+      document.getElementById("flashCount").textContent = "0 / 0";
+      return;
+    }
+    flashIndex = ((flashIndex % activeFlashCards.length) + activeFlashCards.length) % activeFlashCards.length;
+    const c = activeFlashCards[flashIndex];
+    document.getElementById("flashCard").innerHTML = `
+      <div class="flash-inner">
+        <span class="eyebrow">${flipped ? "FORMULA & EXPLANATION" : "ACTIVE RECALL PROMPT"}</span>
+        <div>${flipped ? c.back : c.front}</div>
+        <div class="tagline">Click "Flip Card" to verify your formula recall.</div>
+      </div>`;
+    document.getElementById("flashCount").textContent = `${flashIndex + 1} / ${activeFlashCards.length} Cards`;
+    document.getElementById("flashMeta").textContent = `${s} · ${t === "*" ? "Complete Formula Deck" : t}`;
+  }
+
+  // NTA CBT Mock Test Engine with Anti-Repeat Interleaving
+  function formatClock(sec) {
+    const h = Math.floor(sec / 3600);
+    const m = Math.floor((sec % 3600) / 60);
+    const s = sec % 60;
+    return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  }
+
+  function launchMock(count = 75, mins = 180, label = "75-QUESTION FULL MOCK") {
+    const box = document.getElementById("testBox");
+    const subjects = Object.keys(syllabus[state.aim] || {});
+    let rawPool = [];
+    const perSubTarget = Math.ceil(count / subjects.length) + 15;
+
+    subjects.forEach(subject => {
+      let subPool = [];
+      (syllabus[state.aim][subject] || []).forEach(topic => {
+        subPool.push(...TX.build(subject, topic, 20));
+      });
+      for (let i = subPool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [subPool[i], subPool[j]] = [subPool[j], subPool[i]];
+      }
+      rawPool.push(...subPool.slice(0, perSubTarget));
+    });
+
+    // Random shuffle first
+    for (let i = rawPool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [rawPool[i], rawPool[j]] = [rawPool[j], rawPool[i]];
+    }
+
+    // Anti-repeat pass: ensure no two adjacent questions have the same archetype
+    let finalPool = [];
+    let used = new Set();
+    while (finalPool.length < Math.min(count, rawPool.length) && used.size < rawPool.length) {
+      const prevArch = finalPool.length ? finalPool[finalPool.length - 1].archetype : "";
+      let pickedIdx = rawPool.findIndex((item, idx) => !used.has(idx) && item.archetype !== prevArch);
+      if (pickedIdx === -1) pickedIdx = rawPool.findIndex((_, idx) => !used.has(idx));
+      used.add(pickedIdx);
+      finalPool.push(rawPool[pickedIdx]);
+    }
+
+    mockQuestions = finalPool;
+    mockResults = new Array(mockQuestions.length).fill(null);
+    mockIndex = 0;
+    mockCorrect = 0;
+    mockWrong = 0;
+    mockAnswered = false;
+    mockTitle = `${state.aim} · ${label}`;
+
+    if (mockTimerId) clearInterval(mockTimerId);
+    mockSecondsLeft = mins * 60;
+    mockTimerId = setInterval(() => {
+      mockSecondsLeft--;
+      const clockEl = document.getElementById("mockClock");
+      if (clockEl) clockEl.textContent = formatClock(Math.max(0, mockSecondsLeft));
+      if (mockSecondsLeft <= 0) {
+        clearInterval(mockTimerId);
+        finishMock();
+      }
+    }, 1000);
+
+    box.classList.remove("hidden");
+    renderMockQuestion();
+    box.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function renderMockQuestion() {
+    const box = document.getElementById("testBox");
+    const q = mockQuestions[mockIndex];
+    if (!q) { finishMock(); return; }
+    const existing = mockResults[mockIndex];
+    mockAnswered = existing !== null;
+
+    box.innerHTML = `
+      <div class="row" style="border-bottom:1px solid var(--line);padding-bottom:12px">
+        <div>
+          <div class="eyebrow">${mockTitle}</div>
+          <div style="font-weight:700;margin-top:2px">Question ${mockIndex + 1} of ${mockQuestions.length} &nbsp;·&nbsp; <span style="color:var(--cyan)">${q.subject}</span></div>
+        </div>
+        <div class="row">
+          <span class="pill gold">⏱ <b id="mockClock">${formatClock(mockSecondsLeft)}</b></span>
+          <button type="button" class="btn ghost" id="mockSubmitAllBtn" style="padding:7px 12px;font-size:13px">Submit Test</button>
+        </div>
+      </div>
+
+      <div class="q-palette" title="Jump to any question">
+        ${mockQuestions.map((_, idx) => {
+          const res = mockResults[idx];
+          const cls = idx === mockIndex ? "cur" : res === true ? "done-ok" : res === false ? "done-bad" : "";
+          return `<button type="button" class="q-dot ${cls}" data-jump-mock="${idx}">${idx + 1}</button>`;
+        }).join("")}
+      </div>
+
+      <div class="question">${q.q}</div>
+      <div id="mockOpts">
+        ${q.o.map((o, i) => `
+          <button type="button" class="option ${mockAnswered && i === q.a ? "correct" : ""}" data-mock-opt="${i}">
+            <span class="opt-key">${String.fromCharCode(65 + i)}</span>
+            <span>${o}</span>
+          </button>`).join("")}
+      </div>
+      <div id="mockFeedback">
+        ${mockAnswered ? `<div class="notice ${existing ? "ok" : "bad"}"><b>${existing ? "✓ Answered Correctly (+4)" : `✗ Incorrect (−1) · Correct: ${String.fromCharCode(65 + q.a)}`}</b><br>${q.e}</div>` : ""}
+      </div>
+      <div class="row" style="margin-top:14px">
+        <span class="tagline">Score so far: <b>${mockCorrect * 4 - mockWrong}</b> / ${mockQuestions.length * 4}</span>
+        <div class="row">
+          ${mockIndex > 0 ? `<button type="button" class="btn secondary" id="mockPrevBtn">← Previous</button>` : ""}
+          <button type="button" class="btn" id="mockNextBtn">${mockIndex === mockQuestions.length - 1 ? "Submit & View Scorecard" : "Save & Next →"}</button>
+        </div>
+      </div>`;
+  }
+
+  function handleMockAnswer(choice) {
+    if (mockAnswered) return;
+    mockAnswered = true;
+    const q = mockQuestions[mockIndex];
+    const ok = choice === q.a;
+    mockResults[mockIndex] = ok;
+    state.done++;
+    if (ok) {
+      mockCorrect++;
+      state.correct++;
+      state.marks += 4;
+      state.xp += 15;
+      state.mastery = Math.min(100, state.mastery + 0.4);
+    } else {
+      mockWrong++;
+      state.marks -= 1;
+      state.xp += 2;
+    }
+    save();
+
+    document.querySelectorAll("#mockOpts .option").forEach((btn, idx) => {
+      if (idx === q.a) btn.classList.add("correct");
+      else if (idx === choice) btn.classList.add("wrong");
+    });
+
+    document.getElementById("mockFeedback").innerHTML = `
+      <div class="notice ${ok ? "ok" : "bad"}">
+        <b>${ok ? "✓ Correct! (+4 Marks)" : `✗ Incorrect (−1 Mark) · Correct Option: ${String.fromCharCode(65 + q.a)}`}</b><br>
+        <span style="display:block;margin-top:4px"><b>Step-by-step Solution:</b> ${q.e}</span>
+      </div>`;
+  }
+
+  function finishMock() {
+    if (mockTimerId) clearInterval(mockTimerId);
+    const total = mockQuestions.length;
+    const attempted = mockCorrect + mockWrong;
+    const unattempted = total - attempted;
+    const netScore = mockCorrect * 4 - mockWrong;
+    const maxScore = total * 4;
+    const acc = attempted ? Math.round((mockCorrect / attempted) * 100) : 0;
+
+    document.getElementById("testBox").innerHTML = `
+      <div class="eyebrow">NTA CBT SCORECARD</div>
+      <h3 style="margin:6px 0 14px">${mockTitle} — Completed</h3>
+      <div class="tiles">
+        <div class="tile"><div class="stat" style="color:var(--gold)">${netScore} / ${maxScore}</div><div class="tagline">Net Marks (+4 / −1)</div></div>
+        <div class="tile"><div class="stat" style="color:var(--green)">${mockCorrect}</div><div class="tagline">Correct (+${mockCorrect * 4})</div></div>
+        <div class="tile"><div class="stat" style="color:var(--red)">${mockWrong}</div><div class="tagline">Incorrect (−${mockWrong})</div></div>
+        <div class="tile"><div class="stat">${acc}%</div><div class="tagline">Accuracy (${unattempted} skipped)</div></div>
+      </div>
+      <div class="row" style="margin-top:18px;justify-content:flex-start">
+        <button type="button" class="btn" data-action="launch-mock" data-count="${total}" data-mins="180" data-label="NEW FULL MOCK">Attempt Another Mock →</button>
+        <button type="button" class="btn secondary" data-go="learn">Practice Weak Chapters</button>
+      </div>`;
+  }
+
+  // Countdown
+  const txTargets = [
+    ["JEE Main 2027 (Session 1)", "2027-01-22T09:00:00"],
+    ["NEET UG 2027", "2027-05-02T14:00:00"],
+    ["JEE Advanced 2027", "2027-05-23T09:00:00"]
+  ];
+  function renderCountdown() {
+    const now = Date.now();
+    document.getElementById("countdownTiles").innerHTML = txTargets.map(([name, date]) => {
+      const diff = Math.max(0, new Date(date).getTime() - now);
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins = Math.floor((diff % 3600000) / 60000);
+      const secs = Math.floor((diff % 60000) / 1000);
+      return `<div class="tile countdown-live">
+        <div class="tagline">${name}</div>
+        <strong>${days}d ${String(hours).padStart(2, "0")}h</strong>
+        <div class="timer-units"><b>${String(mins).padStart(2, "0")}</b><span>min</span><b>${String(secs).padStart(2, "0")}</b><span>sec</span></div>
+        <div class="tagline">Countdown to target exam window</div>
+      </div>`;
+    }).join("");
+  }
+
+  // Global Event Delegation
+  document.addEventListener("click", function (e) {
+    const goBtn = e.target.closest("[data-go]");
+    if (goBtn) {
+      go(goBtn.dataset.go);
+      return;
+    }
+
+    const subjCard = e.target.closest("[data-pick-subject]");
+    if (subjCard) {
+      currentSubject = subjCard.dataset.pickSubject;
+      go("learn");
+      renderTopics();
+      document.getElementById("practiceBox").classList.add("hidden");
+      return;
+    }
+
+    const topicBtn = e.target.closest("[data-start-topic]");
+    if (topicBtn) {
+      startPractice(Number(topicBtn.dataset.startTopic));
+      return;
+    }
+
+    const pOpt = e.target.closest("[data-p-opt]");
+    if (pOpt) {
+      handlePracticeAnswer(Number(pOpt.dataset.pOpt));
+      return;
+    }
+
+    if (e.target.closest("#practicePrevBtn")) {
+      if (pIndex > 0) { pIndex--; renderPracticeQuestion(); }
+      return;
+    }
+
+    if (e.target.closest("#practiceNextBtn")) {
+      pIndex++;
+      if (pIndex >= practiceQuestions.length) {
+        document.getElementById("practiceBox").innerHTML = `
+          <h3>Chapter Practice Completed!</h3>
+          <p class="muted">You completed all ${practiceQuestions.length} questions in <b>${pTopic}</b>.</p>
+          <button type="button" class="btn" data-start-topic="${(syllabus[state.aim][currentSubject] || []).indexOf(pTopic)}">Solve Again</button>`;
+      } else {
+        renderPracticeQuestion();
+      }
+      return;
+    }
+
+    if (e.target.closest("#btnStartMM")) { startMentalMath(true); return; }
+    if (e.target.closest("#btnPracticeMM")) { startMentalMath(false); return; }
+
+    const mmOpt = e.target.closest("[data-mm-opt]");
+    if (mmOpt && mmCur) {
+      const choice = Number(mmOpt.dataset.mmOpt);
+      const ok = choice === mmCur.a;
+      if (ok) {
+        mmStreak++;
+        mmScore += 10 + Math.min(20, mmStreak * 2);
+        state.xp += 5;
+        document.getElementById("mmFeedback").innerHTML = `<span style="color:var(--green)">✓ Fast & Correct! ${mmCur.e}</span>`;
+      } else {
+        mmStreak = 0;
+        document.getElementById("mmFeedback").innerHTML = `<span style="color:var(--red)">✗ Answer: ${mmCur.o[mmCur.a]} (${mmCur.e})</span>`;
+      }
+      document.getElementById("mmStreak").textContent = mmStreak;
+      document.getElementById("mmScore").textContent = mmScore;
+      save();
+      nextMentalMath();
+      return;
+    }
+
+    const mockLaunchBtn = e.target.closest("[data-action='launch-mock']");
+    if (mockLaunchBtn) {
+      const cnt = Number(mockLaunchBtn.dataset.count) || 75;
+      const mins = Number(mockLaunchBtn.dataset.mins) || 180;
+      const lbl = mockLaunchBtn.dataset.label || "FULL MOCK";
+      launchMock(cnt, mins, lbl);
+      return;
+    }
+
+    const jumpBtn = e.target.closest("[data-jump-mock]");
+    if (jumpBtn) {
+      mockIndex = Number(jumpBtn.dataset.jumpMock);
+      renderMockQuestion();
+      return;
+    }
+
+    const mockOpt = e.target.closest("[data-mock-opt]");
+    if (mockOpt) {
+      handleMockAnswer(Number(mockOpt.dataset.mockOpt));
+      return;
+    }
+
+    if (e.target.closest("#mockPrevBtn")) {
+      if (mockIndex > 0) { mockIndex--; renderMockQuestion(); }
+      return;
+    }
+
+    if (e.target.closest("#mockNextBtn")) {
+      mockIndex++;
+      if (mockIndex >= mockQuestions.length) finishMock();
+      else renderMockQuestion();
+      return;
+    }
+
+    if (e.target.closest("#mockSubmitAllBtn")) {
+      finishMock();
+      return;
+    }
+
+    if (e.target.closest("#btnFlipFlash")) { flipped = !flipped; renderFlash(); return; }
+    if (e.target.closest("#btnNextFlash")) { flashIndex++; flipped = false; renderFlash(); return; }
+    if (e.target.closest("#btnPrevFlash")) { flashIndex--; flipped = false; renderFlash(); return; }
+    if (e.target.closest("#btnNeedRev") || e.target.closest("#btnKnowThis")) { flashIndex++; flipped = false; renderFlash(); return; }
+    if (e.target.closest("#btnShuffleFlash")) {
+      for (let i = activeFlashCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [activeFlashCards[i], activeFlashCards[j]] = [activeFlashCards[j], activeFlashCards[i]];
+      }
+      flashIndex = 0; flipped = false; renderFlash();
+      return;
+    }
+
+    if (e.target.closest("#btnResetProgress")) {
+      if (confirm("Reset all XP, Net Marks, and Mastery stats on this device?")) {
+        state.xp = 0; state.done = 0; state.correct = 0; state.marks = 0; state.mastery = 0;
+        save();
+      }
+      return;
+    }
+  });
+
+  function switchAim(newAim) {
+    state.aim = newAim;
+    if (newAim === "NEET") state.level = "NEET Speed & Accuracy";
+    else if (newAim === "JEE Advanced") state.level = "JEE Advanced Challenger";
+    else if (newAim === "IOQM") state.level = "IOQM + Mental Math";
+    else state.level = "JEE Main Standard";
+
+    currentSubject = Object.keys(syllabus[state.aim])[0];
+    document.getElementById("practiceBox").classList.add("hidden");
+    document.getElementById("testBox").classList.add("hidden");
+    if (mockTimerId) clearInterval(mockTimerId);
+    save();
+    renderTopics();
+    fillFlash();
+  }
+
+  document.getElementById("aimSelect").addEventListener("change", function () { switchAim(this.value); });
+  document.getElementById("quickAimSwitch").addEventListener("change", function () { switchAim(this.value); });
+
+  document.getElementById("levelSelect").addEventListener("change", function () {
+    state.level = this.value;
+    save();
+    renderTopics();
+  });
+
+  document.getElementById("settingsLevel").addEventListener("change", function () {
+    state.level = this.value;
+    save();
+    renderTopics();
+  });
+
+  document.getElementById("nameInput").addEventListener("input", function () {
+    state.name = this.value.trim() || "Aspirant";
+    save();
+  });
+
+  document.getElementById("flashSubject").addEventListener("change", flashSubjectChanged);
+  document.getElementById("flashTopic").addEventListener("change", function () {
+    flashIndex = 0; flipped = false; renderFlash();
+  });
+
+  // Initialize
+  updateUI();
+  renderTopics();
+  fillFlash();
+  renderCountdown();
+  setInterval(renderCountdown, 1000);
+});
+</script>
+</body>
+</html>
